@@ -96,10 +96,8 @@ app.use(express.json());
 // ⚠️ IMPORTANTE:
 // Dentro de contactRoutes debe usarse router.post('/')
 const contactRoutes = require('./routes/contactRoutes');
-const subscriptionRoutes = require('./routes/subscriptionRoutes');
 
 app.use('/api/contact', contactRoutes);
-app.use('/api/subscriptions', subscriptionRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
@@ -149,6 +147,6 @@ if (mongoUri) {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`🚀 API Mamabike corriendo en puerto ${PORT}`);
+  console.log(`🚀 API FelicitasAguerralde corriendo en puerto ${PORT}`);
   console.log(`🌐 Entorno: ${process.env.NODE_ENV || 'development'}`);
 });
