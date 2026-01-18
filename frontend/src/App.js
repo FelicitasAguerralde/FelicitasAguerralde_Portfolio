@@ -6,13 +6,14 @@ import './App.css';
 // Pages
 import About from './pages/About';
 import Contact from './pages/Contact';
+import CVButton from './pages/CVButton';
+import Education from './pages/Education';
 import Footer from './pages/Footer';
 import Hero from './pages/Hero';
 import Navbar from './pages/Navbar';
 import ProjectDetail from './pages/ProjectDetail';
 import Projects from './pages/Projects';
 import Skills from './pages/Skills';
-import Education from './pages/Education';
 
 // Data
 import portfolioData from './data/portfolio.json';
@@ -79,6 +80,7 @@ function App() {
         darkMode={darkMode}
         toggleTheme={toggleTheme}
       />
+      <CVButton />
 
       <Routes>
         {/* HOME */}
