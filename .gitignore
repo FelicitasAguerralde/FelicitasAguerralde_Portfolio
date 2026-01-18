@@ -1,0 +1,26 @@
+# dependencies
+node_modules/
+**/node_modules/
+
+# cache (ESTO ES CLAVE)
+.cache/
+**/.cache/
+
+# build
+build/
+dist/
+
+# testing
+coverage/
+
+# env
+.env
+.env.*
+
+# misc
+.DS_Store
+Thumbs.db
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

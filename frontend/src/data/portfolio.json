@@ -1,0 +1,46 @@
+{
+  "personalInfo": {
+    "name": "Felicitas Aguerralde",
+    "title": "Desarrolladora Full Stack",
+    "location": "Tandil, Buenos Aires, Argentina",
+    "email": "felicitas.aguerralde@gmail.com",
+    "phone": "+54 9 249 4026987",
+    "about": "Soy estudiante de la Tecnicatura Universitaria en Desarrollo de Aplicaciones Informáticas (TUDAI) de la Universidad Nacional del Centro de la Provincia de Buenos Aires (UNICEN).\nActualmente cuento con el 100 % de las cursadas aprobadas, adeudando únicamente dos finales para recibirme.\nAprobé las Prácticas Profesionales desarrollando la página web de turismo de la localidad de Lobería, utilizando React, Node.js y PostgreSQL, participando tanto en el frontend como en el backend del proyecto.\nMe apasiona especialmente el desarrollo frontend, aunque también disfruto mucho trabajar en el backend, ya que me resulta dinámico y desafiante.\nActualmente busco oportunidades para contribuir en proyectos desafiantes, seguir adquiriendo experiencia práctica y crecer profesionalmente como desarrolladora.",
+    "bio": "Desarrolladora con 3 años de experiencia en desarrollo web. Especializada en JavaScript, React y Node.js. Apasionada por las buenas prácticas de código, testing y arquitectura de software. Busco oportunidades para contribuir en proyectos desafiantes donde pueda seguir creciendo profesionalmente.",
+    "avatar": "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+  },
+  "social": {
+    "github": "https://github.com/FelicitasAguerralde",
+    "linkedin": "https://www.linkedin.com/in/felicitasaguerralde/",
+    "twitter": "https://x.com/FAguerralde",
+    "portfolio": "https://felicitas-aguerralde.vercel.app"
+  },
+  "education": [
+    {
+      "degree": "Ingeniería en Sistemas",
+      "institution": "Universidad Nacional del Centro",
+      "period": "2019 - 2024",
+      "description": "Especialización en desarrollo de software y bases de datos."
+    },
+    {
+      "degree": "Certificación Full Stack",
+      "institution": "Platzi",
+      "period": "2022",
+      "description": "Desarrollo web moderno con JavaScript, React y Node.js."
+    }
+  ],
+  "experience": [
+    {
+      "position": "Desarrolladora Frontend",
+      "company": "TechSolutions SA",
+      "period": "2022 - Presente",
+      "description": "Desarrollo de aplicaciones web con React, optimización de performance y mentoría a nuevos desarrolladores."
+    },
+    {
+      "position": "Desarrolladora Full Stack",
+      "company": "StartupXYZ",
+      "period": "2021 - 2022",
+      "description": "Desarrollo de MVP y features principales usando React y Node.js."
+    }
+  ]
+}

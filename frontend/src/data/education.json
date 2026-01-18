@@ -1,0 +1,251 @@
+{
+  "academic": [
+    {
+      "title": "Tecnicatura Universitaria en Desarrollo de Aplicaciones Informáticas",
+      "institution": "UNICEN",
+      "startYear": 2022,
+      "endYear": "Presente",
+      "status": "Cursadas aprobadas – 2 finales pendientes",
+      "description": "Formación en desarrollo de software, bases de datos y programación web."
+    },
+    {
+      "title": "Profesorado en Matemática",
+      "institution": "UNICEN",
+      "startYear": 2007,
+      "endYear": 2013,
+      "status": "Finalizado",
+      "description": "Experiencia en enseñanza de matemática, física y fisico-química en nivel secundario, terciario y adultos."
+    },
+    {
+      "title": "Licenciatura en Enseñanza de la Matemática en Educación Secundaria ",
+      "institution": "UNICEN",
+      "startYear": 2014,
+      "endYear": 2021,
+      "status": "Finalizado",
+      "description": "Formación en didáctica de la matemática."
+    },
+    {
+      "title": "Diplomada en Enseñanza de la Física",
+      "institution": "UNICEN",
+      "startYear": 2014,
+      "endYear": 2015,
+      "status": "Finalizado",
+      "description": "Formación complementaria en enseñanza de la física en nivel secundario."
+    },
+    {
+      "title": "Profesora de Arte con orientación en Cerámica",
+      "institution": "Escuela de Cerámica Nª2, Tandil",
+      "startYear": 2021,
+      "endYear": 2022,
+      "status": "Pendiente",
+      "description": "Formación en Artes visuales con orientación en cerámica."
+    }
+  ],
+
+  "courses": [
+    {
+      "title": "IA desde cero",
+      "institution": "Digital House",
+      "year": 2025,
+      "category": "programacion",
+      "technologies": [
+        "Inteligencia Artificial",
+        "Machine Learning",
+        "IA Generativa"
+      ],
+      "id-credential": null,
+      "certificateUrl": null
+    },
+    {
+      "title": "Bases de GIT y GITHUB",
+      "institution": "Desafío Latam",
+      "year": 2023,
+      "category": "programacion",
+      "technologies": ["Git", "GitHub", "Control de versiones"],
+      "id-credential": "07sdmjiyhq",
+      "certificateUrl": "https://cursos.desafiolatam.com/certificates/07sdmjiyhq"
+    },
+    {
+      "title": "Master en JavaScript: Aprender JS, JQuery, Angular y NodeJS",
+      "institution": "Udemy",
+      "year": 2023,
+      "category": "programacion",
+      "technologies": [
+        "JavaScript",
+        "jQuery",
+        "Angular",
+        "Node.js",
+        "Programación Web"
+      ],
+      "id-credential": "UC-775fa414-d605-41d6-8a68-fc9deab8a8fb",
+      "certificateUrl": "https://udemy-certificate.s3.amazonaws.com/pdf/UC-775fa414-d605-41d6-8a68-fc9deab8a8fb.pdf"
+    },
+    {
+      "title": "Curso de Desarrollo de Apps Móviles",
+      "institution": "Google",
+      "year": 2023,
+      "category": "programacion",
+      "technologies": [
+        "Desarrollo Mobile",
+        "Aplicaciones Android",
+        "UX",
+        "Buenas prácticas"
+      ],
+      "id-credential": "WBG 3G5 CHX",
+      "certificateUrl": "https://grow.google/"
+    },
+    {
+      "title": "Diplomado en Programación en Java",
+      "institution": "Politécnico de Colombia",
+      "year": 2023,
+      "category": "programacion",
+      "technologies": ["Java", "POO", "Programación Orientada a Objetos"],
+      "id-credential": "34206598",
+      "certificateUrl": "https://www.politecnicodecolombia.edu.co/certificados/"
+    },
+    {
+      "title": "Diplomado en Programación en PHP",
+      "institution": "Politécnico de Colombia",
+      "year": 2023,
+      "category": "programacion",
+      "technologies": ["PHP", "Backend", "Desarrollo Web"],
+      "id-credential": "34206598",
+      "certificateUrl": "https://www.politecnicodecolombia.edu.co/certificados/"
+    },
+    {
+      "title": "Diseño e Integración Web HTML5 + CSS",
+      "institution": "RIET-INEW",
+      "year": 2022,
+      "category": "programacion",
+      "technologies": ["HTML5", "CSS3", "Diseño Web", "Maquetado"],
+      "id-credential": "Aprobado por Resolución MTEySS Nº 240/2022",
+      "certificateUrl": null
+    },
+
+    {
+      "title": "La continuidad pedagógica en la emergencia para docentes",
+      "institution": "Dirección General de Cultura y Educación (PBA)",
+      "year": 2020,
+      "category": "educacion",
+      "technologies": ["Educación", "TIC", "Entornos virtuales"],
+      "id-credential": "Aprobado por Resolución MTEySS Nº 240/2022",
+      "certificateUrl": null
+    },
+    {
+      "title": "Plan Nacional aprender matemática en la escuela secundaria. Equivaler, comparar y medir",
+      "institution": "Dirección General de Cultura y Educación (PBA)",
+      "year": 2020,
+      "category": "educacion",
+      "technologies": ["Matemática", "Educación"],
+      "id-credential": "Aprobado por resolución Nº 6899 Año 2019 Dictamen Nº 10463",
+      "certificateUrl": null
+    },
+    {
+      "title": "¿Por qué es importante enseñar estadística?",
+      "institution": "Dirección General de Cultura y Educación (PBA)",
+      "year": 2019,
+      "category": "educacion",
+      "technologies": ["Estadística", "Educación", "Didáctica"],
+      "id-credential": "Aprobado por resolución Nº 1461 Año 2017 Dictamen Nº 10121",
+      "certificateUrl": null
+    },
+    {
+      "title": "Aprendizaje basado en problemas mediados por TIC en la escuela secundaria",
+      "institution": "Dirección General de Cultura y Educación (PBA)",
+      "year": 2019,
+      "category": "educacion",
+      "technologies": ["ABP", "TIC", "Educación"],
+      "id-credential": "Aprobado por resolución Nº 1430 Año 2017 Dictamen Nº 10095",
+      "certificateUrl": null
+    },
+    {
+      "title": "Las TIC en la difusión del conocimiento técnico, formas de acceder, comunicar y compartir",
+      "institution": "Dirección General de Cultura y Educación de la Provincia de Buenos Aires",
+      "year": 2017,
+      "category": "educacion",
+      "technologies": ["Educación", "TIC"],
+      "id-credential": "Aprobado por resolución Nº 1430 Año 2017 Dictamen Nº 10095",
+      "certificateUrl": null
+    },
+    {
+      "title": "Aprendizaje de ecuaciones en la escuela secundaria",
+      "institution": "Dirección General de Cultura y Educación de la Provincia de Buenos Aires",
+      "year": 2017,
+      "category": "educacion",
+      "technologies": [
+        "Didáctica de la Matemática",
+        "Ecuaciones",
+        "Educación Secundaria"
+      ],
+      "id-credential": "Aprobado por resolución Nº 1429 Año 2017 Dictamen Nº 10096",
+      "certificateUrl": null
+    },
+    {
+      "title": "La continuidad en la enseñanza de la matemática entre niveles EP/ES",
+      "institution": "Dirección General de Cultura y Educación de la Provincia de Buenos Aires",
+      "year": 2017,
+      "category": "educacion",
+      "technologies": ["Educación", "Matemática", "Articulación de niveles"],
+      "id-credential": "Aprobado por Resolución Nº 1640 Año 2017 Dictamen Nº 10155",
+      "certificateUrl": null
+    },
+    {
+      "title": "La tarea de planificar en matemática: Álgebra",
+      "institution": "Dirección General de Cultura y Educación de la Provincia de Buenos Aires",
+      "year": 2016,
+      "category": "educacion",
+      "technologies": ["Álgebra", "Planificación didáctica", "Educación"],
+      "id-credential": "Aprobado por Resolución Nº 313 Año 2012 Dictamen Nº 9077",
+      "certificateUrl": null
+    },
+    {
+      "title": "Equipo directivo y trayectorias escolares",
+      "institution": "SUTEBA",
+      "year": 2015,
+      "category": "educacion",
+      "technologies": [
+        "Gestión educativa",
+        "Trayectorias escolares",
+        "Educación"
+      ],
+      "id-credential": "Aprobado por Resolución Nº 2097 Dictamen 9531 Proyecto Nº 258/14",
+      "certificateUrl": null
+    },
+    {
+      "title": "La tarea de planificar en matemática: Geometría",
+      "institution": "Dirección General de Cultura y Educación de la Provincia de Buenos Aires",
+      "year": 2015,
+      "category": "educacion",
+      "technologies": ["Geometría", "Planificación didáctica", "Educación"],
+      "id-credential": "Aprobado por Resolución Nº 2149 Dictamen Nº 9639",
+      "certificateUrl": null
+    },
+    {
+      "title": "Geometría analítica con GeoGebra: aportes para la enseñanza",
+      "institution": "Dirección General de Cultura y Educación de la Provincia de Buenos Aires",
+      "year": 2013,
+      "category": "educacion",
+      "technologies": ["Geometría Analítica", "GeoGebra", "Educación"],
+      "id-credential": "Aprobado por Resolución Nº 4602 Año 2009 Dictamen Nº 8177",
+      "certificateUrl": null
+    },
+    {
+      "title": "Proyectos educativos con TIC",
+      "institution": "UNICEN",
+      "year": 2013,
+      "category": "educacion",
+      "technologies": ["TIC", "Educación", "Tecnología"],
+      "id-credential": "Aprobado por Resolución DGC y E Nº 313/12 Dictamen Nº 9064",
+      "certificateUrl": null
+    },
+    {
+      "title": "Los aprendizajes colaborativos virtuales y la educación",
+      "institution": "Dirección General de Cultura y Educación de la Provincia de Buenos Aires",
+      "year": 2006,
+      "category": "educacion",
+      "technologies": ["Educación", "TIC", "Aprendizaje colaborativo"],
+      "id-credential": "Aprobado por resolución Nº4609/09 Dictamen 8177",
+      "certificateUrl": null
+    }
+  ]
+}

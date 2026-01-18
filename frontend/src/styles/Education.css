@@ -1,0 +1,362 @@
+/* ================================
+   EDUCATION SECTION
+================================ */
+
+.education-section {
+  padding: 5rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== Title ===== */
+
+.education-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 60px;
+  text-align: center;
+  position: relative;
+  color: var(--text-light);
+}
+
+.education-section h2::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    #a78bfa,
+    var(--secondary-color)
+  );
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+/* ===== Subtitles ===== */
+
+.education-subtitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  margin-top: 40px;
+}
+
+
+/* ================================
+   GRID
+================================ */
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+/* ================================
+   CARD
+================================ */
+
+.education-card {
+  background-color: var(--card-light);
+  border-radius: var(--border-radius);
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 71, 87, 0.05);
+}
+
+.dark-mode .education-card {
+  background-color: var(--card-dark);
+  box-shadow: var(--shadow-dark);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.education-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.education-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(255, 71, 87, 0.15);
+  border-color: rgba(255, 71, 87, 0.2);
+}
+
+.dark-mode .education-card:hover {
+  box-shadow: 0 20px 40px rgba(255, 71, 87, 0.25);
+}
+
+.education-card:hover::before {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+/* ================================
+   TEXT
+================================ */
+
+.education-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-light);
+  line-height: 1.3;
+}
+
+.education-card .institution {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+}
+
+
+.education-card .date {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  opacity: 0.7;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.education-card p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  opacity: 0.8;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+
+/* ================================
+   TAGS / TECHNOLOGIES
+================================ */
+
+.education-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.education-tag {
+  font-size: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(238, 242, 255, 0.8), rgba(224, 231, 255, 0.8));
+  color: var(--primary-color);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(67, 56, 202, 0.1);
+}
+
+.education-tag:hover {
+  background: linear-gradient(90deg, rgba(214, 211, 254, 0.9), rgba(196, 181, 253, 0.9));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(67, 56, 202, 0.2);
+}
+
+/* ================================
+   CERTIFICATE LINK
+================================ */
+
+.education-link {
+  margin-top: 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.education-link::after {
+  content: "→";
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.education-link:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+.education-link:hover::after {
+  transform: translateX(4px);
+}
+
+/* ================================
+   PAGINATION
+================================ */
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.5rem;
+  border: 2px solid var(--primary-color);
+  background-color: var(--card-light);
+  color: var(--text-light);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+.dark-mode .filter-btn {
+  background-color: var(--card-dark);
+}
+
+.filter-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.filter-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.education-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: var(--text-light);
+  opacity: 0.8;
+}
+
+.count-number {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+.count-label {
+  font-weight: 500;
+}
+
+/* ================================
+   PAGINATION
+================================ */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.pagination-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--primary-color);
+  background-color: var(--card-light);
+  color: var(--text-light);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+.dark-mode .pagination-btn {
+  background-color: var(--card-dark);
+  border-color: var(--primary-color);
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .education-section {
+    padding: 4rem 1rem;
+    background: none;
+    box-shadow: none;
+  }
+
+  .education-section h2 {
+    font-size: 2rem;
+  }
+
+  .education-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .education-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .education-card {
+    padding: 2rem;
+  }
+
+  .education-card:hover {
+    transform: translateY(-8px) scale(1.01);
+  }
+
+  .filter-buttons {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .education-section {
+    padding: 3rem 1rem;
+  }
+
+  .education-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .education-card {
+    padding: 1.5rem;
+  }
+}
