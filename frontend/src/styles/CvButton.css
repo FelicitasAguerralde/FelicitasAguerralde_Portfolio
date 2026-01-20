@@ -2,27 +2,57 @@
 /* Botón CV Sticky */
 .cv-button {
   position: fixed;
-  bottom: 500px;
-  right: 20px;
+  bottom: 700px;
+  right: 2rem;
   background: linear-gradient(135deg, rgba(108, 40, 217, 0.352), rgba(236, 72, 154, 0.314));
   color: white;
-  padding: 12px 24px;
-  border-radius: var(--border-radius);
+  padding: 10px;
+  border-radius: 50px;
   text-decoration: none;
-  font-weight: bold;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 5px 20px rgba(108, 99, 255, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1000;
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: all 0.3s ease;
-  z-index: 100;
-  box-shadow: 0 5px 20px rgba(108, 99, 255, 0.3);
+  width: 48px;
+  height: 48px;
+  justify-content: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.cv-button svg {
+  flex-shrink: 0;
+  font-size: 1.2rem;
+}
+
+.cv-button span {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease 0.1s, width 0.3s ease;
 }
 
 .cv-button:hover {
   background: linear-gradient(135deg, rgba(109, 40, 217, 0.8), rgba(236, 72, 153, 0.8));
   transform: translateY(-2px);
-  box-shadow: var(--shadow-dark);
+  box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
+  width: auto;
+  padding: 10px 20px;
+  border-radius: 50px;
+}
+
+.cv-button:hover span {
+  opacity: 1;
+  width: auto;
+  margin-left: 4px;
+}
+
+@media (min-width: 768px) {
+  .cv-button {
+    bottom: 400px;
+  }
 }

@@ -1,6 +1,6 @@
 .hero {
   padding-top: 120px;
-  padding-bottom: 80px;
+  padding-bottom: 40px;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -47,7 +47,7 @@
 @media (max-width: 768px) {
   .hero {
     padding-top: 100px;
-    padding-bottom: 60px;
+    padding-bottom: 30px;
   }
   
   .hero-title {
