@@ -36,15 +36,9 @@ app.get('/api/projects', (req, res) => {
   res.json(projects);
 });
 
-// Ruta para contacto (enviar email)
-app.post('/api/contact', (req, res) => {
-  const { name, email, message } = req.body;
-
-  // Aquí implementarías el envío de email
-  console.log('Mensaje recibido:', { name, email, message });
-
-  res.json({ success: true, message: 'Mensaje enviado correctamente' });
-});
+// Rutas de contacto
+const contactRoutes = require('./routes/contactRoutes');
+app.use('/api/contact', contactRoutes);
 
 // Iniciar servidor
 app.listen(PORT, () => {

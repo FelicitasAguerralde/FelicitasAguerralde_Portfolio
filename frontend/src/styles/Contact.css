@@ -227,6 +227,27 @@ p.section-subtitle{
   min-height: 120px;
 }
 
+.character-count {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-light);
+  opacity: 0.7;
+  text-align: right;
+  transition: color 0.3s ease;
+}
+
+.character-count-warning {
+  color: var(--primary-color);
+  opacity: 1;
+  font-weight: 500;
+}
+
+.character-count-min {
+  margin-left: 0.25rem;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
 .form-actions {
   margin-top: 2rem;
 }
@@ -257,6 +278,18 @@ p.section-subtitle{
   background-color: rgba(72, 187, 120, 0.1);
   border-radius: 8px;
   color: #48bb78;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: fadeIn 0.5s ease;
+}
+
+.error-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgba(229, 62, 62, 0.1);
+  border-radius: 8px;
+  color: #e53e3e;
   display: flex;
   align-items: center;
   gap: 0.5rem;

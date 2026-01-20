@@ -7,13 +7,14 @@ async function sendContactNotification({ firstName, lastName, email, subject, me
     console.log('📧 [RESEND] Enviando email...');
 
     await resend.emails.send({
-      from: 'Mamabike <onboarding@resend.dev>',
+      from: 'Mi portfolio <onboarding@resend.dev>',
       to: ['felicitas.aguerralde@gmail.com'],
       replyTo: email,
-      subject: `📩 Nuevo contacto Mamabike: ${subject}`,
+      subject: `📩 Nuevo contacto Mi Portfolio: ${subject}`,
       html: `
         <h2>Nuevo mensaje de contacto</h2>
-        <p><b>Nombre:</b> ${firstName} ${lastName}</p>
+        <p><b>Nombre:</b> ${firstName}</p>
+        <p><b>Apellido:</b> ${lastName}</p>
         <p><b>Email:</b> ${email}</p>
         <p><b>Mensaje:</b></p>
         <p>${message}</p>

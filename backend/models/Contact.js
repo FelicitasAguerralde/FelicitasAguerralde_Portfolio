@@ -23,12 +23,13 @@ try {
         },
         subject: {
             type: String,
-            required: [true, 'El asunto es requerido']
+            required: false,
+            default: 'Consulta desde portfolio'
         },
         message: {
             type: String,
             required: [true, 'El mensaje es requerido'],
-            minlength: [10, 'El mensaje debe tener al menos 10 caracteres']
+            minlength: [5, 'El mensaje debe tener al menos 5 caracteres']
         }
     }, {
         timestamps: true
