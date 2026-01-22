@@ -1,6 +1,7 @@
 // Contact.js - Sección de contacto
 import { useState } from 'react';
 import '../styles/Contact.css';
+import { API_URL } from '../config/global';
 
 const Contact = ({ email, github, linkedin }) => {
   const [formData, setFormData] = useState({
@@ -36,9 +37,7 @@ const Contact = ({ email, github, linkedin }) => {
         message: formData.message,
       };
 
-      const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
-
-      const response = await fetch(`${API_URL}/api/contact`, {
+      const response = await fetch(`${API_URL}/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -234,10 +233,16 @@ const Contact = ({ email, github, linkedin }) => {
                   placeholder="Describe tu proyecto o consulta..."
                   className="form-textarea"
                 ></textarea>
-                <div className={`character-count ${formData.message.length < 5 ? 'character-count-warning' : ''}`}>
-                  {formData.message.length} {formData.message.length === 1 ? 'carácter' : 'caracteres'}
+                <div
+                  className={`character-count ${formData.message.length < 5 ? 'character-count-warning' : ''}`}
+                >
+                  {formData.message.length}{' '}
+                  {formData.message.length === 1 ? 'carácter' : 'caracteres'}
                   {formData.message.length < 5 && (
-                    <span className="character-count-min"> (mínimo 5 caracteres)</span>
+                    <span className="character-count-min">
+                      {' '}
+                      (mínimo 5 caracteres)
+                    </span>
                   )}
                 </div>
               </div>
