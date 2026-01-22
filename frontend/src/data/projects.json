@@ -112,6 +112,7 @@
     "longDescription": "Página web dedicada al personaje de Marvel Spider-Man, que presenta información sobre el personaje, sus series, películas y videojuegos. Se aplicaron principios de diseño UI/UX para la correcta disposición de los elementos visuales. Además, se desarrollaron efectos visuales mediante el uso de sprite sheets y animaciones con keyframes en CSS, mejorando la interactividad y la experiencia del usuario.",
     "category": "Frontend",
     "technologies": ["HTML5", "CSS3", "JavaScript"],
+    "infrastructure": ["Hosting de contenido estático: Netlify"],
     "imageUrl": "/images/projects/spidey-index.png",
     "githubUrl": "https://github.com/FelicitasAguerralde/Proyecto_Spidey",
     "liveUrl": "https://spideyproyect.netlify.app/",
@@ -127,6 +128,7 @@
     "longDescription": "Proyecto realizado en el seminario de Angular de la carrera TUDAI. Consiste en una página web para la reserva de viajes compartidos. Se desarrollaron dos APIs REST: una para la gestión de los viajes disponibles y otra para la administración de los vehículos cargados. El frontend fue implementado con Angular y Bootstrap para agilizar el desarrollo y lograr una interfaz consistente. Además, se aplicó un diseño responsive que permite su correcta visualización en distintos dispositivos.",
     "category": "Fullstack",
     "technologies": ["Angular", "API REST", "Bootstrap"],
+    "infrastructure": ["Hosting de contenido estático: Netlify"],
     "imageUrl": "/images/projects/viajes-compartidos-index.png",
     "githubUrl": "https://github.com/FelicitasAguerralde/SeminarioAngular_ViajesCompartidos",
     "liveUrl": "https://viajescompartidosproyect.netlify.app/",
@@ -142,6 +144,7 @@
     "longDescription": "Página web desarrollada en la materia Web 2 que incluye un formulario de inscripción a clases de yoga y pilates, con validación mediante un código CAPTCHA implementado en JavaScript. Además, cuenta con un panel de administrador que permite editar y eliminar las inscripciones registradas. El diseño fue desarrollado siguiendo la técnica mobile first, logrando una interfaz responsive adaptable a distintos dispositivos.",
     "category": "Frontend",
     "technologies": ["HTML5", "CSS3", "JavaScript"],
+    "infrastructure": ["Hosting de contenido estático: Netlify"],
     "imageUrl": "/images/projects/yoga.png",
     "githubUrl": "http://github.com/FelicitasAguerralde/Proyecto_Yoga_Pilates",
     "liveUrl": "https://yogapilatesproject.netlify.app/",
@@ -163,11 +166,11 @@
       "GSAP",
       "styled-components"
     ],
-    "infrastructure": ["Hosting de contenido estático: Vercel"],
+    "infrastructure": ["Hosting de contenido estático: Netlify"],
     "imageUrl": "/images/projects/mi-portfolio-index.png",
     "githubUrl": "https://github.com/FelicitasAguerralde/mi-portfolio",
-    "liveUrl": "https://felicitas-aguerralde.vercel.app",
-    "featured": true,
+    "liveUrl": "https://felicitasaguerralde.netlify.app/",
+    "featured": false,
     "date": "2025-12-10",
     "status": "Finalizado"
   },
@@ -212,7 +215,7 @@
     "imageUrl": "/images/projects/estudiantes.png",
     "githubUrl": "https://github.com/FelicitasAguerralde/Microservicios_carrera_estudiante",
     "liveUrl": "",
-    "featured": true,
+    "featured": false,
     "date": "2024-11-12",
     "status": "Completado"
   }
