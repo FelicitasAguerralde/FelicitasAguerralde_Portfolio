@@ -1,53 +1,115 @@
-
 [
-    {
+  {
     "id": 1,
     "title": "Mamabike",
-    "description": "Página Web de fundas de ruedas y cascos de ciclismo",
-    "longDescription": "Página web de e-commerce para la venta de fundas de ruedas y cascos de ciclismo. Construida con React, NodeJs y MongoDB.",
+    "description": "Página web de e-commerce para la venta de fundas de ruedas y cascos de ciclismo",
+    "longDescription": "Página web de e-commerce orientada a la venta de fundas de ruedas y cascos de ciclismo, optimizada para dispositivos móviles y tablets. Cuenta con un catálogo de productos, formulario de contacto y suscripción al newsletter. El rendimiento está optimizado mediante Vite y React 18, la seguridad se gestiona mediante validación de datos y configuración de CORS, y el SEO se optimiza utilizando React Helmet Async. La interfaz presenta una UI moderna desarrollada con Bootstrap y componentes personalizados. El sistema fue construido con React en el frontend, Node.js y Express en el backend, y MongoDB como base de datos. El frontend se desplegó en Netlify y el backend en Render, utilizando MongoDB Atlas como servicio de base de datos.",
     "category": "Fullstack",
-    "technologies": ["React", "Node.js", "Express", "MongoDB", "reactIcons", "CORS", "Axios"],
+    "technologies": [
+      "React",
+      "React Router DOM",
+      "Vite",
+      "Bootstrap",
+      "React Bootstrap",
+      "React Toastify",
+      "React Helmet Async",
+      "Typewriter Effect",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Mongoose",
+      "Express Validator",
+      "Nodemailer",
+      "Resend",
+      "CORS"
+    ],
+    "infrastructure": [
+      "Frontend: Netlify",
+      "Backend: Render",
+      "Base de datos: MongoDB Atlas"
+    ],
     "imageUrl": "/images/projects/mamabike-index.png",
     "githubUrl": "https://github.com/FelicitasAguerralde/mamabike",
     "liveUrl": "https://mamabike.ar/",
     "featured": true,
     "date": "2025-08-20",
-    "status": "En progreso"
+    "status": "Finalizado"
   },
+
   {
     "id": 2,
     "title": "Lobería Turismo",
-    "description": "Proyecto final de las Prácticas Profesionales de la carrera TUDAI.Página web de turismo para la localidad de Lobería, construida con React y Node.js.",
-    "longDescription": "Este proyecto es una página web de turismo para la localidad de Lobería, construida con React en el Frontend y Node.js en el Backend con base de dats PostgreSQL. ",
+    "description": "Proyecto final de las Prácticas Profesionales de la carrera TUDAI. Página web de turismo para la localidad de Lobería, construida con React y Node.js.",
+    "longDescription": "Este proyecto es una página web de turismo para la localidad de Lobería, construida con React en el frontend y Node.js en el backend, utilizando una base de datos PostgreSQL.",
     "category": "Fullstack",
-    "technologies": ["React", "Node.js", "Express", "PostgreSQL", "JWT", "CSS Modules", "Google Analytics",  "OpenWeather API", "Axios","Docker", "reactIcons", "Chart.js"],
+    "technologies": [
+      "React",
+      "React Router DOM",
+      "Vite",
+      "Bootstrap",
+      "React Bootstrap",
+      "Axios",
+      "i18next",
+      "chart.js",
+      "React Toastify",
+      "React Icons",
+      "React Ga4",
+      "Typewriter Effect",
+      "Node.js",
+      "Express",
+      "Jsonwebtoken",
+      "Jwt Simple",
+      "Bcryptjs",
+      "Express Validator",
+      "Multer",
+      "CORS",
+      "Nodemailer",
+      "Axios",
+      "Jest",
+      "Supertest",
+      "Nodemon",
+      "Jsdoc",
+      "Docker",
+      "PostgreSQL",
+      "Google Analytics",
+      "OpenWeather API",
+      "Figma (Design System)"
+    ],
+    "infrastructure": [
+      "Sistema Operativo: Servidores GNU/Linux – Debian 12 (Bookworm)",
+      "Servidor Web / Acceso: Apache HTTP Server (sirviendo frontend y actuando como proxy reverso)",
+      "Backend: Node.js ejecutado como servicio",
+      "Base de Datos: PostgreSQL"
+    ],
     "imageUrl": "/images/projects/loberia-index.png",
     "githubUrl": "https://github.com/FelicitasAguerralde/Turismo-Loberia",
     "liveUrl": "",
     "featured": true,
     "date": "2025-11-15",
-    "status": "Completado"
+    "status": "Finalizado"
   },
 
   {
     "id": 3,
     "title": "Cuatro en Línea",
-    "description": "Proyecto final de la materia Interfaces de Usuario de TUDAI. Consiste en una página web de juegos en linea con una sección en la que se puede jugar el juego Cuatro en Linea on-line.",
-    "longDescription": "Página web de juegos en linea con una sección en la que se puede jugar el juego Cuatro en Linea on-line. Esta sección se creo utilizando un cuadro de Canvas, además se le añadió sonidos y efectos visuales para mejorar la experiencia del usuario. Además se utilizó un diseño responsive para que se pueda ver en cualquier dispositivo.",
+    "description": "Proyecto final de la materia Interfaces de Usuario de la carrera TUDAI. Página web de juegos en línea que incluye el juego Cuatro en Línea.",
+    "longDescription": "Página web de juegos en línea que incluye una sección interactiva donde se puede jugar al clásico juego Cuatro en Línea. Esta funcionalidad fue desarrollada utilizando el elemento Canvas de HTML5, incorporando sonidos y efectos visuales para mejorar la experiencia del usuario. Además, se implementó un diseño responsive que permite su correcta visualización y uso en distintos dispositivos.",
     "category": "Frontend",
-    "technologies": ["HTML5", "CSS3", "JavaScript" ],
+    "technologies": ["HTML5", "CSS3", "JavaScript", "Figma (Design System)"],
+    "infrastructure": ["Hosting de contenido estático: Netlify"],
     "imageUrl": "/images/projects/cuatro-en-linea-index.png",
     "githubUrl": "https://github.com/FelicitasAguerralde/Proyecto-Cuatro-En-Linea",
     "liveUrl": "https://cuatroenlineaproyect.netlify.app/",
     "featured": true,
     "date": "2024-05-01",
-    "status": "Completado"
+    "status": "Finalizado"
   },
+
   {
     "id": 4,
     "title": "Spidey",
-    "description": "Proyecto final de la materia Interfaces de Usuario de la carrera TUDAI. Consiste en una Página web de un personaje de Marvel, Spiderman, con información sobre el personaje, sus series, peliculas y videojuegos.",
-    "longDescription": "Página web de un personaje de Marvel, Spiderman, con información sobre el personaje, sus series, peliculas y videojuegos. Se utilizaron las reglas UI/UX para la disposición de los elementos de la página, creando efectos visuales en los personajes mediante spreetSheet y animaciones keyframes con CSS.",
+    "description": "Proyecto final de la materia Interfaces de Usuario de la carrera TUDAI. Página web dedicada al personaje de Marvel Spider-Man.",
+    "longDescription": "Página web dedicada al personaje de Marvel Spider-Man, que presenta información sobre el personaje, sus series, películas y videojuegos. Se aplicaron principios de diseño UI/UX para la correcta disposición de los elementos visuales. Además, se desarrollaron efectos visuales mediante el uso de sprite sheets y animaciones con keyframes en CSS, mejorando la interactividad y la experiencia del usuario.",
     "category": "Frontend",
     "technologies": ["HTML5", "CSS3", "JavaScript"],
     "imageUrl": "/images/projects/spidey-index.png",
@@ -55,27 +117,29 @@
     "liveUrl": "https://spideyproyect.netlify.app/",
     "featured": true,
     "date": "2024-03-05",
-    "status": "Completado"
+    "status": "Finalizado"
   },
+
   {
     "id": 5,
     "title": "Viajes Compartidos",
-    "description": "Página web de reserva de viajes compartidos con Angular y ApiRest.",
-    "longDescription": "Proyecto del seminario de Ángular de la carrera TUDAI. Consiste en una página web de reserva de viajes compartidos. Se crearon dos ApiRest, una para los viajes disponibles y otra para los autos cargados. Se utilizó Bootstrap para agilizar el desarrollo Frontend. Además se utilizó un diseño responsive para que se pueda ver en cualquier dispositivo.",
+    "description": "Página web de reserva de viajes compartidos desarrollada con Angular y consumo de APIs REST.",
+    "longDescription": "Proyecto realizado en el seminario de Angular de la carrera TUDAI. Consiste en una página web para la reserva de viajes compartidos. Se desarrollaron dos APIs REST: una para la gestión de los viajes disponibles y otra para la administración de los vehículos cargados. El frontend fue implementado con Angular y Bootstrap para agilizar el desarrollo y lograr una interfaz consistente. Además, se aplicó un diseño responsive que permite su correcta visualización en distintos dispositivos.",
     "category": "Fullstack",
-    "technologies": ["Angular", "ApiRest", "Bootstrap"],
+    "technologies": ["Angular", "API REST", "Bootstrap"],
     "imageUrl": "/images/projects/viajes-compartidos-index.png",
     "githubUrl": "https://github.com/FelicitasAguerralde/SeminarioAngular_ViajesCompartidos",
     "liveUrl": "https://viajescompartidosproyect.netlify.app/",
     "featured": true,
     "date": "2024-04-12",
-    "status": "Completado"
+    "status": "Finalizado"
   },
+
   {
     "id": 6,
     "title": "Yoga y Pilates",
-    "description": "Trabajo de la materia Web 2. Consiste en una página web para inscripción a clases de yoga y pilates con formulario y panel de administrador.",
-    "longDescription": "Página web desarrollada en la materia Web 2. Consta de un formulario de inscripción a las clases de yoga y pilates con validación por código captcha desarrollado en Javascript, y un panel de adminstrador que permite editar y eliminar las inscripciones. Además se utilizó un diseño resposive desarrollado con la técnica mobile first.",
+    "description": "Trabajo realizado en la materia Web 2. Página web para la inscripción a clases de yoga y pilates.",
+    "longDescription": "Página web desarrollada en la materia Web 2 que incluye un formulario de inscripción a clases de yoga y pilates, con validación mediante un código CAPTCHA implementado en JavaScript. Además, cuenta con un panel de administrador que permite editar y eliminar las inscripciones registradas. El diseño fue desarrollado siguiendo la técnica mobile first, logrando una interfaz responsive adaptable a distintos dispositivos.",
     "category": "Frontend",
     "technologies": ["HTML5", "CSS3", "JavaScript"],
     "imageUrl": "/images/projects/yoga.png",
@@ -83,27 +147,36 @@
     "liveUrl": "https://yogapilatesproject.netlify.app/",
     "featured": false,
     "date": "2023-12-18",
-    "status": "Completado"
+    "status": "Finalizado"
   },
+
   {
     "id": 7,
     "title": "Portfolio Interactivo",
-    "description": "Portfolio web interactivo con animaciones 3D, modo oscuro y diseño responsivo.",
-    "longDescription": "Mi propio portfolio desarrollado con React y Three.js. Incluye animaciones 3D, efectos de partículas, modo oscuro/claro, diseño completamente responsivo y optimizado para SEO. Utiliza técnicas modernas de rendering y performance optimization.",
+    "description": "Portfolio web interactivo con animaciones 3D, modo oscuro y diseño responsive.",
+    "longDescription": "Portfolio personal desarrollado con React y Three.js (WebGL). Incluye animaciones 3D, efectos de partículas, modo oscuro y claro, y un diseño completamente responsive optimizado para SEO y performance. Se aplican técnicas modernas de renderizado y optimización del rendimiento para mejorar la experiencia del usuario.",
     "category": "Frontend",
-    "technologies": ["React", "Three.js", "Framer Motion", "GSAP", "Styled Components"],
+    "technologies": [
+      "React",
+      "Three.js",
+      "Framer Motion",
+      "GSAP",
+      "styled-components"
+    ],
+    "infrastructure": ["Hosting de contenido estático: Vercel"],
     "imageUrl": "/images/projects/mi-portfolio-index.png",
     "githubUrl": "https://github.com/FelicitasAguerralde/mi-portfolio",
     "liveUrl": "https://felicitas-aguerralde.vercel.app",
     "featured": true,
     "date": "2025-12-10",
-    "status": "Completado"
+    "status": "Finalizado"
   },
+
   {
     "id": 8,
     "title": "Popcorn Film",
-    "description": "Página web de colección de películas favoritas con buscador por título.",
-    "longDescription": "Página web de colección de películas favoritas, desarrollada en el curso de Udemy 'Master en React: Aprender ReactJS, Hooks, MERN, NodeJS, JWT+'. Cuenta con una sección para guardar las características de las películas, así como un buscador por título.",
+    "description": "Página web para gestionar una colección de películas con buscador por título.",
+    "longDescription": "Página web desarrollada en el curso de Udemy 'Máster en React: Aprender ReactJS, Hooks, MERN, NodeJS y JWT+'. Permite gestionar una colección personal de películas, guardar sus principales características y realizar búsquedas por título. El proyecto fue implementado utilizando React para la interfaz y JavaScript para la lógica de la aplicación.",
     "category": "Frontend",
     "technologies": ["React", "CSS3", "JavaScript"],
     "imageUrl": "/images/projects/popcorn.png",
@@ -111,13 +184,14 @@
     "liveUrl": "https://popcornfilmproyect.netlify.app/",
     "featured": false,
     "date": "2024-04-04",
-    "status": "Completado"
+    "status": "Finalizado"
   },
+
   {
     "id": 9,
     "title": "Gestión de Monopatines",
-    "description": "Backend de desarrollado en la materia Arquitecturas Web de la carrera TUDAI. Consiste en el Backend para la gestión de mononopatines eléctricos utilizando microservicios con Spring Boot.",
-    "longDescription": "Backend para la gestión de mononopatines eléctricos utilizando microservicios con Spring Boot. Incluye autenticación JWT, base de datos MySQL y documentación con Swagger.",
+    "description": "Backend desarrollado en la materia Arquitecturas Web de la carrera TUDAI. Sistema para la gestión de monopatines eléctricos basado en microservicios.",
+    "longDescription": "Backend desarrollado para la gestión de monopatines eléctricos utilizando una arquitectura de microservicios con Spring Boot. El sistema incluye autenticación y autorización mediante JWT, persistencia de datos en una base de datos MySQL y documentación de las APIs mediante Swagger, facilitando su uso y mantenimiento.",
     "category": "Backend",
     "technologies": ["Spring Boot", "MySQL", "Swagger", "JWT"],
     "imageUrl": "/images/projects/monopatines.png",
@@ -125,15 +199,16 @@
     "liveUrl": "",
     "featured": true,
     "date": "2024-11-12",
-    "status": "Completado"
+    "status": "Finalizado"
   },
-    {
+
+  {
     "id": 10,
     "title": "Gestión de Inscripción de Estudiantes",
-    "description": "Backend de desarrollado en la materia Arquitecturas Web de la carrera TUDAI. Consiste en el Backend para la gestión de inscripción de estudiantes utilizando microservicios con Spring Boot.",
-    "longDescription": "Backend para la gestión de inscripción de estudiantes utilizando microservicios con Spring Boot. Incluye autenticación JWT, base de datos MySQL y documentación con Swagger.",
+    "description": "Backend desarrollado en la materia Arquitecturas Web de la carrera TUDAI. Sistema para la gestión de inscripciones de estudiantes basado en microservicios.",
+    "longDescription": "Backend desarrollado para la gestión de inscripciones de estudiantes utilizando una arquitectura de microservicios con Spring Boot. El sistema incluye autenticación y autorización mediante JWT, persistencia de datos en una base de datos MySQL, documentación de las APIs con Swagger y contenedorización mediante Docker para facilitar su despliegue.",
     "category": "Backend",
-    "technologies": ["Spring Boot", "MySQL", "Docker"],
+    "technologies": ["Spring Boot", "MySQL", "JWT", "Swagger", "Docker"],
     "imageUrl": "/images/projects/estudiantes.png",
     "githubUrl": "https://github.com/FelicitasAguerralde/Microservicios_carrera_estudiante",
     "liveUrl": "",

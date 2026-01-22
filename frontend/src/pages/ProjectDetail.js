@@ -43,6 +43,13 @@ function ProjectDetail({ projects }) {
         ))}
       </ul>
 
+      <h3>Infraestructura</h3>
+      <ul>
+        {project.infrastructure.map((infrastructure) => (
+          <li key={infrastructure}><SiSitepoint />  {infrastructure}</li>
+        ))}
+      </ul>
+
       <p><strong>Estado:</strong> {project.status}</p>
       <p><strong>Fecha:</strong> {project.date}</p>
 
