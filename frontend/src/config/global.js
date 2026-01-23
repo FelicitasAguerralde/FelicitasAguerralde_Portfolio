@@ -32,4 +32,4 @@ if (!currentConfig || !currentConfig.API_BASE) {
 export const API_URL = currentConfig.API_BASE;
 export const IS_DEV = ENV === 'development';
 
-console.log(`🌐 API Config: ${ENV} -> ${API_URL}`);
+//console.log(`🌐 API Config: ${ENV} -> ${API_URL}`);
