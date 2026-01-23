@@ -158,15 +158,27 @@
     "title": "Portfolio Interactivo",
     "description": "Portfolio web interactivo con animaciones 3D, modo oscuro y diseño responsive.",
     "longDescription": "Portfolio personal desarrollado con React y Three.js (WebGL). Incluye animaciones 3D, efectos de partículas, modo oscuro y claro, y un diseño completamente responsive optimizado para SEO y performance. Se aplican técnicas modernas de renderizado y optimización del rendimiento para mejorar la experiencia del usuario.",
-    "category": "Frontend",
+    "category": "Fullstack",
     "technologies": [
       "React",
+      "React Router DOM",
+      "React Icons",
       "Three.js",
       "Framer Motion",
       "GSAP",
-      "styled-components"
+      "styled-components",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Mongoose",
+      "Resend",
+      "CORS"
     ],
-    "infrastructure": ["Hosting de contenido estático: Netlify"],
+    "infrastructure": [
+      "Frontend: Netlify",
+      "Backend: Render",
+      "Base de datos: MongoDB Atlas"
+    ],
     "imageUrl": "/images/projects/mi-portfolio-index.png",
     "githubUrl": "https://github.com/FelicitasAguerralde/mi-portfolio",
     "liveUrl": "https://felicitasaguerralde.netlify.app/",
