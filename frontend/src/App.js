@@ -82,6 +82,7 @@ function App() {
       />
       <CVButton />
 
+    <div className="app-content">
       <Routes>
         {/* HOME */}
         <Route
@@ -127,13 +128,14 @@ function App() {
           element={<ProjectDetail projects={projects} />}
         />
       </Routes>
-
+    </div>
       <Footer
         name={portfolioData.personalInfo.name}
         email={portfolioData.personalInfo.email}
         github={portfolioData.social.github}
         linkedin={portfolioData.social.linkedin}
       />
+
     </div>
   );
 }
