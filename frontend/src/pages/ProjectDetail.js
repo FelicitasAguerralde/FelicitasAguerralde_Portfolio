@@ -38,20 +38,28 @@ function ProjectDetail({ projects }) {
 
       <h3>Tecnologías</h3>
       <ul>
-        {project.technologies.map((tech) => (
+        {(project.technologies || []).map((tech) => (
           <li key={tech}><SiSitepoint />  {tech}</li>
         ))}
       </ul>
 
-      <h3>Infraestructura</h3>
-      <ul>
-        {project.infrastructure.map((infrastructure) => (
-          <li key={infrastructure}><SiSitepoint />  {infrastructure}</li>
-        ))}
-      </ul>
+      {project.infrastructure && project.infrastructure.length > 0 && (
+        <>
+          <h3>Infraestructura</h3>
+          <ul>
+            {(project.infrastructure || []).map((infra) => (
+              <li key={infra}><SiSitepoint />  {infra}</li>
+            ))}
+          </ul>
+        </>
+      )}
 
-      <p><strong>Estado:</strong> {project.status}</p>
-      <p><strong>Fecha:</strong> {project.date}</p>
+      {project.status && (
+        <p><strong>Estado:</strong> {project.status}</p>
+      )}
+      {project.date && (
+        <p><strong>Fecha:</strong> {project.date}</p>
+      )}
 
       <div className="links">
         {project.githubUrl && (
