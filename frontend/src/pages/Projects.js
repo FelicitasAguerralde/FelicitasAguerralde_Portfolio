@@ -6,6 +6,7 @@ const Projects = ({ projects }) => {
   const [projectsPerPage, setProjectsPerPage] = useState(6);
   const [isAnimating, setIsAnimating] = useState(false);
   const [filter, setFilter] = useState('all');
+  const [revealNonce, setRevealNonce] = useState(0);
 
   // Categorías únicas de proyectos
   const categories = ['all', ...new Set(projects.map(project => 
@@ -17,12 +18,17 @@ const Projects = ({ projects }) => {
     ? projects 
     : projects.filter(project => (project.category || 'web') === filter);
 
-  // Efecto para animación al cambiar página/filtro
+  // Efecto para animación solo al cambiar filtro
   useEffect(() => {
     setIsAnimating(true);
     const timer = setTimeout(() => setIsAnimating(false), 300);
     return () => clearTimeout(timer);
-  }, [currentPage, projectsPerPage, filter]);
+  }, [filter]);
+
+  // Re-disparar animación de aparición solo al cambiar filtro
+  useEffect(() => {
+    setRevealNonce((n) => n + 1);
+  }, [filter]);
 
   // Resetear a página 1 cuando cambia el filtro
   useEffect(() => {
@@ -144,10 +150,11 @@ const Projects = ({ projects }) => {
         {/* Grid de proyectos con animación */}
         <div className={`projects-grid ${isAnimating ? 'animating' : ''}`}>
           {currentProjects.length > 0 ? (
-            currentProjects.map((project) => (
+            currentProjects.map((project, idx) => (
               <ProjectCard 
-                key={project.id} 
+                key={`${project.id}-${revealNonce}`} 
                 project={project}
+                index={idx}
               />
             ))
           ) : (
@@ -288,9 +295,12 @@ const Projects = ({ projects }) => {
 };
 
 // Componente ProjectCard
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, index = 0 }) => {
   return (
-    <div className={`project-card ${project.featured ? 'featured' : ''}`}>
+    <div
+      className={`project-card project-card-reveal ${project.featured ? 'featured' : ''}`}
+      style={{ animationDelay: `${Math.min(index, 8) * 70}ms` }}
+    >
       {project.featured && (
         <div className="featured-badge" aria-label="Proyecto destacado">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">

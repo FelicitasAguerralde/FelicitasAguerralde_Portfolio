@@ -634,6 +634,31 @@
   }
 }
 
+/* Aparición de cards desde abajo */
+.project-card-reveal {
+  animation: projectSlideUp 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform, opacity;
+}
+
+@keyframes projectSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card-reveal,
+  .projects-grid.animating {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
 /* Responsive */
 @media (max-width: 1023px) {
   .projects-grid {
