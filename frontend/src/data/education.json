@@ -44,6 +44,18 @@
 
   "courses": [
     {
+      "title": "Master en React: Aprender ReactJS, Hooks, MERN, NodeJS, JWT+",
+      "institution": "Udemy",
+      "year": 2026,
+      "category": "programacion",
+      "technologies": [
+        "React",
+        "NodeJS"
+      ],
+      "id-credential": null,
+      "certificateUrl": null
+    },
+    {
       "title": "IA desde cero",
       "institution": "Digital House",
       "year": 2025,
