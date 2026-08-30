@@ -52,15 +52,15 @@ function CubesBackground({ children }) {
 
     const drawHexagon = (tile, brightness) => {
       const colors = [
-        `rgb(${Math.round(88 + brightness * 30)}, ${Math.round(90 + brightness * 30)}, ${Math.round(94 + brightness * 30)})`,
-        `rgb(${Math.round(48 + brightness * 22)}, ${Math.round(50 + brightness * 22)}, ${Math.round(54 + brightness * 22)})`,
-        `rgb(${Math.round(18 + brightness * 14)}, ${Math.round(20 + brightness * 14)}, ${Math.round(23 + brightness * 14)})`,
+        `rgb(${Math.round(28 + brightness * 30)}, ${Math.round(31 + brightness * 28)}, ${Math.round(42 + brightness * 26)})`,
+        `rgb(${Math.round(18 + brightness * 20)}, ${Math.round(21 + brightness * 20)}, ${Math.round(30 + brightness * 18)})`,
+        `rgb(${Math.round(12 + brightness * 16)}, ${Math.round(14 + brightness * 16)}, ${Math.round(22 + brightness * 14)})`,
       ];
       const vertices = [];
 
       context.save();
       context.translate(tile.x, tile.y);
-      context.globalAlpha = 0.88 + brightness * 0.12;
+      context.globalAlpha = 0.9 + brightness * 0.08;
 
       for (let side = 0; side < 6; side += 1) {
         const firstAngle = -Math.PI / 2 + side * Math.PI / 3;
@@ -92,20 +92,20 @@ function CubesBackground({ children }) {
         context.lineTo(vertices[side].x, vertices[side].y);
       }
       context.closePath();
-      context.strokeStyle = `rgba(150, 153, 158, ${0.18 + brightness * 0.2})`;
-      context.lineWidth = 0.8;
+      context.strokeStyle = `rgba(195, 200, 222, ${0.08 + brightness * 0.14})`;
+      context.lineWidth = 0.7;
       context.stroke();
 
       context.beginPath();
       context.moveTo(vertices[0].x, vertices[0].y);
       context.lineTo(0, 0);
       context.lineTo(vertices[3].x, vertices[3].y);
-      context.strokeStyle = `rgba(18, 19, 21, ${0.34 + brightness * 0.2})`;
+      context.strokeStyle = `rgba(45, 50, 60, ${0.18 + brightness * 0.14})`;
       context.stroke();
 
       context.beginPath();
       context.arc(0, 0, tile.radius * 0.035, 0, Math.PI * 2);
-      context.fillStyle = '#26282b';
+      context.fillStyle = '#1b1f2a';
       context.fill();
       context.restore();
     };
@@ -115,7 +115,7 @@ function CubesBackground({ children }) {
       pointerX += (targetPointerX - pointerX) * 0.045;
       pointerY += (targetPointerY - pointerY) * 0.045;
       context.clearRect(0, 0, width, height);
-      context.fillStyle = '#090909';
+      context.fillStyle = '#140f1d';
       context.fillRect(0, 0, width, height);
 
       const formation = Math.min(1, time / 5);
@@ -129,7 +129,7 @@ function CubesBackground({ children }) {
         const x = tile.startX + (tile.x - tile.startX) * easedFormation + driftX;
         const y = tile.startY + (tile.y - tile.startY) * easedFormation + driftY;
         const distance = Math.hypot(x - mouseX, y - mouseY);
-        const brightness = Math.max(0, 1 - distance / 300);
+        const brightness = Math.max(0.12, 1 - distance / 340);
         drawHexagon({
           ...tile,
           x,

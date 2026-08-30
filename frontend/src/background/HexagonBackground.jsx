@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
-import '../styles/FondoTeselasLluvia.css';
+import '../styles/HexagonBackground.css';
 
-function FondoTeselasLluvia() {
+function HexagonBackground() {
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -30,11 +30,11 @@ function FondoTeselasLluvia() {
       canvas.style.height = `${height}px`;
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
-      const radius = 40;
+      const radius = width < 700 ? 34 : 48;
       const horizontalStep = Math.sqrt(3) * radius;
       const verticalStep = radius * 1.5;
-      const columns = Math.ceil(width / horizontalStep) + 2;
-      const rows = Math.ceil(height / verticalStep) + 2;
+      const columns = Math.ceil(width / horizontalStep) + 3;
+      const rows = Math.ceil(height / verticalStep) + 3;
 
       tiles = Array.from({ length: rows * columns }, (_, index) => {
         const row = Math.floor(index / columns) - 1;
@@ -44,33 +44,75 @@ function FondoTeselasLluvia() {
           column,
           x: column * horizontalStep + (row % 2 === 0 ? 0 : horizontalStep / 2),
           y: row * verticalStep,
+          radius,
           phase: Math.random() * Math.PI * 2,
         };
       });
     };
 
-    const drawTile = (tile, radius, brightness, offsetX, offsetY) => {
-      context.beginPath();
+    const drawTile = (tile, brightness) => {
+      const colors = [
+        `rgb(${Math.round(88 + brightness * 30)}, ${Math.round(90 + brightness * 30)}, ${Math.round(94 + brightness * 30)})`,
+        `rgb(${Math.round(48 + brightness * 22)}, ${Math.round(50 + brightness * 22)}, ${Math.round(54 + brightness * 22)})`,
+        `rgb(${Math.round(18 + brightness * 14)}, ${Math.round(20 + brightness * 14)}, ${Math.round(23 + brightness * 14)})`,
+      ];
+      const vertices = [];
+
+      context.save();
+      context.translate(tile.x, tile.y);
+      context.globalAlpha = 0.9 + brightness * 0.1;
+
       for (let side = 0; side < 6; side += 1) {
         const angle = -Math.PI / 2 + side * Math.PI / 3;
-        const x = tile.x + offsetX + radius * Math.cos(angle);
-        const y = tile.y + offsetY + radius * Math.sin(angle);
-        if (side === 0) context.moveTo(x, y);
-        else context.lineTo(x, y);
+        vertices.push({
+          x: tile.radius * Math.cos(angle),
+          y: tile.radius * Math.sin(angle),
+        });
+      }
+
+      const faces = [
+        [0, 1, 2],
+        [2, 3, 4],
+        [4, 5, 0],
+      ];
+
+      faces.forEach((face, faceIndex) => {
+        context.beginPath();
+        context.moveTo(0, 0);
+        face.forEach((vertexIndex) => {
+          context.lineTo(vertices[vertexIndex].x, vertices[vertexIndex].y);
+        });
+        context.closePath();
+        context.fillStyle = colors[faceIndex];
+        context.fill();
+      });
+
+      context.beginPath();
+      context.moveTo(vertices[0].x, vertices[0].y);
+      for (let side = 1; side < vertices.length; side += 1) {
+        context.lineTo(vertices[side].x, vertices[side].y);
       }
       context.closePath();
-      const tileLightness = 15 + brightness * 25;
-      context.fillStyle = `rgba(${tileLightness}, ${tileLightness}, ${tileLightness}, 0.82)`;
-      context.fill();
-      const edgeLightness = 105 + brightness * 105;
-      context.strokeStyle = `rgba(${edgeLightness}, ${edgeLightness}, ${edgeLightness}, ${0.16 + brightness * 0.3})`;
-      context.lineWidth = 1;
+      context.strokeStyle = `rgba(150, 153, 158, ${0.18 + brightness * 0.2})`;
+      context.lineWidth = 0.8;
       context.stroke();
+
+      context.beginPath();
+      context.moveTo(vertices[0].x, vertices[0].y);
+      context.lineTo(0, 0);
+      context.lineTo(vertices[3].x, vertices[3].y);
+      context.strokeStyle = `rgba(18, 19, 21, ${0.34 + brightness * 0.2})`;
+      context.stroke();
+
+      context.beginPath();
+      context.arc(0, 0, tile.radius * 0.035, 0, Math.PI * 2);
+      context.fillStyle = '#26282b';
+      context.fill();
+      context.restore();
     };
 
     const animate = () => {
       time += 0.012;
-      const radius = 40;
       currentMouseX += (mouseX - currentMouseX) * 0.045;
       currentMouseY += (mouseY - currentMouseY) * 0.045;
       context.clearRect(0, 0, width, height);
@@ -96,7 +138,7 @@ function FondoTeselasLluvia() {
           ? waveRadius * (0.5 + 0.5 * Math.sin(distanceToMouse * 0.045 - time * 3.2))
           : 0;
         const brightness = Math.min(1, wave * 0.38 + Math.max(0, cursorWave) * 0.9);
-        drawTile(tile, radius, brightness, 0, 0);
+        drawTile(tile, brightness);
       });
 
       animationFrameId = requestAnimationFrame(animate);
@@ -137,4 +179,4 @@ function FondoTeselasLluvia() {
   );
 }
 
-export default FondoTeselasLluvia;
+export default HexagonBackground;
