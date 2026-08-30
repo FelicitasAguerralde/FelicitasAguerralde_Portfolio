@@ -51,8 +51,8 @@ function App() {
   const skills = useMemo(() => {
     const techCount = {};
 
-    projects.forEach(project => {
-      project.technologies.forEach(tech => {
+    projects.forEach((project) => {
+      project.technologies.forEach((tech) => {
         techCount[tech] = (techCount[tech] || 0) + 1;
       });
     });
@@ -61,15 +61,15 @@ function App() {
     if (totalProjects === 0) return [];
 
     return Object.keys(techCount)
-      .map(name => ({
+      .map((name) => ({
         name,
-        level: Math.round((techCount[name] / totalProjects) * 100)
+        level: Math.round((techCount[name] / totalProjects) * 100),
       }))
       .sort((a, b) => b.level - a.level);
   }, [projects]);
 
   const toggleTheme = () => {
-    setDarkMode(prev => !prev);
+    setDarkMode((prev) => !prev);
   };
 
   return (
@@ -82,60 +82,59 @@ function App() {
       />
       <CVButton />
 
-    <div className="app-content">
-      <Routes>
-        {/* HOME */}
-        <Route
-          path="/"
-          element={
-            <>
-              <Hero
-                name={portfolioData.personalInfo.name}
-                title={portfolioData.personalInfo.title}
-                location={portfolioData.personalInfo.location}
-                email={portfolioData.personalInfo.email}
-                github={portfolioData.social.github}
-                linkedin={portfolioData.social.linkedin}
-                avatar={portfolioData.personalInfo.avatar}
-              />
+      <div className="app-content">
+        <Routes>
+          {/* HOME */}
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero
+                  name={portfolioData.personalInfo.name}
+                  title={portfolioData.personalInfo.title}
+                  location={portfolioData.personalInfo.location}
+                  email={portfolioData.personalInfo.email}
+                  github={portfolioData.social.github}
+                  linkedin={portfolioData.social.linkedin}
+                  avatar={portfolioData.personalInfo.avatar}
+                />
 
-              <About
-                about={portfolioData.personalInfo.about}
-                bio={portfolioData.personalInfo.bio}
-                email={portfolioData.personalInfo.email}
-                education={portfolioData.education}
-                experience={portfolioData.experience}
-              />
+                <About
+                  about={portfolioData.personalInfo.about}
+                  bio={portfolioData.personalInfo.bio}
+                  email={portfolioData.personalInfo.email}
+                  education={portfolioData.education}
+                  experience={portfolioData.experience}
+                />
 
-              <Skills skills={skills} />
+                <Skills skills={skills} />
 
-              <Projects projects={projects} />
+                <Projects projects={projects} />
 
-              <Contact
-                email={portfolioData.personalInfo.email}
-                github={portfolioData.social.github}
-                linkedin={portfolioData.social.linkedin}
-                phone={portfolioData.personalInfo.phone}
-              />
-              <Education  />
-            </>
-          }
-        />
+                <Education />
+                <Contact
+                  email={portfolioData.personalInfo.email}
+                  github={portfolioData.social.github}
+                  linkedin={portfolioData.social.linkedin}
+                  phone={portfolioData.personalInfo.phone}
+                />
+              </>
+            }
+          />
 
-        {/* DETALLE DE PROYECTO */}
-        <Route
-          path="/proyectos/:id"
-          element={<ProjectDetail projects={projects} />}
-        />
-      </Routes>
-    </div>
+          {/* DETALLE DE PROYECTO */}
+          <Route
+            path="/proyectos/:id"
+            element={<ProjectDetail projects={projects} />}
+          />
+        </Routes>
+      </div>
       <Footer
         name={portfolioData.personalInfo.name}
         email={portfolioData.personalInfo.email}
         github={portfolioData.social.github}
         linkedin={portfolioData.social.linkedin}
       />
-
     </div>
   );
 }

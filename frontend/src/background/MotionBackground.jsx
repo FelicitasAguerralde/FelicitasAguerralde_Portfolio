@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
-import '../styles/FondoCombinado.css';
+import '../styles/MotionBackground.css';
 
-function FondoCombinado() {
+function MotionBackground() {
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -232,9 +232,10 @@ function FondoCombinado() {
       context.clearRect(0, 0, width, height);
 
       const background = context.createRadialGradient(width * 0.5, height * 0.5, 0, width * 0.5, height * 0.5, width * 0.8);
-      background.addColorStop(0, '#222427');
-      background.addColorStop(0.65, '#08090a');
-      background.addColorStop(1, '#020202');
+      background.addColorStop(0, '#120d1a');
+      background.addColorStop(0.45, '#08060d');
+      background.addColorStop(0.8, '#140f1d');
+      background.addColorStop(1, '#08060d');
       context.fillStyle = background;
       context.fillRect(0, 0, width, height);
       drawHexGrid();
@@ -252,8 +253,8 @@ function FondoCombinado() {
           hexagon.y + floatY + pointerOffsetY,
           hexagon.radius,
           hexagon.rotation,
-          `rgba(126, 130, 135, ${0.04 + glow * 0.1})`,
-          `rgba(145, 149, 154, ${0.22 + glow * 0.42})`,
+          `rgba(32, 24, 40, ${0.18 + glow * 0.22})`,
+          `rgba(170, 174, 188, ${0.18 + glow * 0.42})`,
           hovered,
         );
       });
@@ -283,8 +284,8 @@ function FondoCombinado() {
         height * 0.5 + pointerOffsetY,
         Math.min(width, height) * 0.3,
       );
-      halo.addColorStop(0, 'rgba(190, 194, 198, 0.12)');
-      halo.addColorStop(0.42, 'rgba(130, 134, 139, 0.045)');
+      halo.addColorStop(0, 'rgba(142, 130, 168, 0.14)');
+      halo.addColorStop(0.42, 'rgba(95, 82, 120, 0.08)');
       halo.addColorStop(1, 'rgba(0, 0, 0, 0)');
       context.fillStyle = halo;
       context.beginPath();
@@ -333,4 +334,4 @@ function FondoCombinado() {
   );
 }
 
-export default FondoCombinado;
+export default MotionBackground;
