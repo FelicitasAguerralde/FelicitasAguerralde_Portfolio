@@ -52,15 +52,15 @@ function HexagonBackground() {
 
     const drawTile = (tile, brightness) => {
       const colors = [
-        `rgb(${Math.round(88 + brightness * 30)}, ${Math.round(90 + brightness * 30)}, ${Math.round(94 + brightness * 30)})`,
-        `rgb(${Math.round(48 + brightness * 22)}, ${Math.round(50 + brightness * 22)}, ${Math.round(54 + brightness * 22)})`,
-        `rgb(${Math.round(18 + brightness * 14)}, ${Math.round(20 + brightness * 14)}, ${Math.round(23 + brightness * 14)})`,
+        `rgb(${Math.round(30 + brightness * 28)}, ${Math.round(33 + brightness * 26)}, ${Math.round(45 + brightness * 24)})`,
+        `rgb(${Math.round(18 + brightness * 20)}, ${Math.round(21 + brightness * 20)}, ${Math.round(30 + brightness * 18)})`,
+        `rgb(${Math.round(12 + brightness * 16)}, ${Math.round(14 + brightness * 16)}, ${Math.round(22 + brightness * 14)})`,
       ];
       const vertices = [];
 
       context.save();
       context.translate(tile.x, tile.y);
-      context.globalAlpha = 0.9 + brightness * 0.1;
+      context.globalAlpha = 0.9 + brightness * 0.08;
 
       for (let side = 0; side < 6; side += 1) {
         const angle = -Math.PI / 2 + side * Math.PI / 3;
@@ -93,20 +93,20 @@ function HexagonBackground() {
         context.lineTo(vertices[side].x, vertices[side].y);
       }
       context.closePath();
-      context.strokeStyle = `rgba(150, 153, 158, ${0.18 + brightness * 0.2})`;
-      context.lineWidth = 0.8;
+      context.strokeStyle = `rgba(195, 200, 222, ${0.08 + brightness * 0.14})`;
+      context.lineWidth = 0.7;
       context.stroke();
 
       context.beginPath();
       context.moveTo(vertices[0].x, vertices[0].y);
       context.lineTo(0, 0);
       context.lineTo(vertices[3].x, vertices[3].y);
-      context.strokeStyle = `rgba(18, 19, 21, ${0.34 + brightness * 0.2})`;
+      context.strokeStyle = `rgba(45, 50, 60, ${0.18 + brightness * 0.14})`;
       context.stroke();
 
       context.beginPath();
       context.arc(0, 0, tile.radius * 0.035, 0, Math.PI * 2);
-      context.fillStyle = '#26282b';
+      context.fillStyle = '#1b1f2a';
       context.fill();
       context.restore();
     };
@@ -118,10 +118,10 @@ function HexagonBackground() {
       context.clearRect(0, 0, width, height);
 
       const background = context.createLinearGradient(0, 0, width, height);
-      background.addColorStop(0, 'rgba(8, 9, 10, 0.04)');
-      background.addColorStop(0.3, 'rgba(15, 16, 18, 0.18)');
-      background.addColorStop(0.7, 'rgba(24, 26, 29, 0.34)');
-      background.addColorStop(1, 'rgba(14, 16, 19, 0.48)');
+      background.addColorStop(0, 'rgba(18, 13, 29, 0.10)');
+      background.addColorStop(0.3, 'rgba(18, 13, 29, 0.18)');
+      background.addColorStop(0.7, 'rgba(18, 13, 29, 0.26)');
+      background.addColorStop(1, 'rgba(18, 13, 29, 0.36)');
       context.fillStyle = background;
       context.fillRect(0, 0, width, height);
 

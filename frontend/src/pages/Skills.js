@@ -1,5 +1,6 @@
 // Skills.js con paginación
 import { useEffect, useMemo, useState } from 'react';
+import HexagonBackground from '../background/HexagonBackground';
 import '../styles/Skills.css';
 
 const Skills = ({ skills }) => {
@@ -61,7 +62,8 @@ const Skills = ({ skills }) => {
 
   return (
     <section id="skills" className="skills">
-      <div className="container">
+      <HexagonBackground />
+      <div className="container skills-inner">
         <h2 className="section-title">Mis <span className="highlight">Habilidades</span></h2>
         <div className="skills-grid">
           {currentSkills.map((skill, index) => (
