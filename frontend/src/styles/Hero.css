@@ -1,4 +1,7 @@
 .hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding-top: 120px;
   padding-bottom: 40px;
   min-height: 100vh;
@@ -6,8 +9,17 @@
   align-items: center;
 }
 
+.hero > .fondo-cubos {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
 .hero-container {
+  position: relative;
+  z-index: 1;
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 2rem;
 }
