@@ -1,14 +1,19 @@
 /* Projects.css - COMPLETO CON PAGINADO AVANZADO */
 .projects {
-  padding: 100px 0;
-  background-color: rgba(255, 71, 87, 0.03);
   position: relative;
   overflow: hidden;
+  padding: 100px 0;
 }
 
-.dark-mode .projects {
-  background-color: rgba(255, 71, 87, 0.05);
+.projects-inner {
+  position: relative;
+  z-index: 2;
 }
+
+.projects .fondo-metamorfosis {
+  z-index: 0;
+}
+
 
 .projects .container {
   max-width: 1400px;
@@ -86,7 +91,7 @@
 }
 
 .filter-btn.active {
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  background:var(--accent);
   border-color: transparent;
   color: white;
   box-shadow: 0 4px 12px rgba(255, 71, 87, 0.2);
@@ -102,7 +107,7 @@
 .count-number {
   font-size: 2rem;
   font-weight: 700;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(90deg, var(--accent), var(--text-primary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -141,7 +146,7 @@
 
 /* Cards de proyectos */
 .project-card {
-  background-color: var(--card-light);
+  background-color: var(--accent-bg);
   border-radius: var(--border-radius);
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -153,28 +158,19 @@
   border: 1px solid rgba(255, 71, 87, 0.05);
 }
 
-.dark-mode .project-card {
-  background-color: var(--card-dark);
-  box-shadow: var(--shadow-dark);
-  border-color: rgba(255, 255, 255, 0.05);
-}
-
 .project-card:hover {
   transform: translateY(-10px) scale(1.02);
   box-shadow: 0 20px 40px rgba(255, 71, 87, 0.15);
   border-color: rgba(255, 71, 87, 0.2);
 }
 
-.dark-mode .project-card:hover {
-  box-shadow: 0 20px 40px rgba(255, 71, 87, 0.25);
-}
 
 /* Badge para proyectos destacados */
 .featured-badge {
   position: absolute;
   top: 15px;
   left: 15px;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(90deg, var(--accent), var(--accent-bg));
   color: white;
   padding: 0.4rem 0.8rem;
   border-radius: 20px;
@@ -446,7 +442,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--card-light);
+  background-color: var(--accent);
   border: 1px solid rgba(255, 71, 87, 0.1);
   color: var(--text-light);
   border-radius: 10px;
@@ -457,20 +453,15 @@
   font-size: 0.95rem;
 }
 
-.dark-mode .pagination-btn {
-  background-color: var(--card-dark);
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
 .pagination-btn:hover:not(.disabled):not(.active) {
-  border-color: var(--primary-color);
+  border-color: var(--accent);
   color: var(--primary-color);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(255, 71, 87, 0.1);
 }
 
 .pagination-btn.active {
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  background: var(--accent);
   border-color: transparent;
   color: white;
   box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
@@ -503,8 +494,8 @@
   align-items: center;
   gap: 0.8rem;
   font-size: 0.95rem;
-  color: var(--text-light);
-  background-color: var(--card-light);
+  color: var(--text-primary);
+  background-color: var(--bg)!important;
   padding: 0.8rem 1.2rem;
   border-radius: 10px;
   border: 1px solid rgba(255, 71, 87, 0.1);
@@ -530,7 +521,7 @@
   padding: 0.6rem 2.5rem 0.6rem 1rem;
   border: 1px solid rgba(255, 71, 87, 0.2);
   border-radius: 8px;
-  background-color: var(--card-light);
+  background-color: var(--bg);
   color: var(--text-light);
   cursor: pointer;
   transition: all 0.3s ease;
@@ -540,12 +531,12 @@
 }
 
 .dark-mode .per-page-select {
-  background-color: var(--card-dark);
+  background-color: var(--bg);
 }
 
 .per-page-select:focus {
   outline: none;
-  border-color: var(--primary-color);
+  border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.1);
 }
 

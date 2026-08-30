@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
-import '../styles/FondoMetamorfosis.css';
+import '../styles/MetamorphosisBackground.css';
 
-function FondoMetamorfosis() {
+function MetamorphosisBackground() {
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -87,10 +87,16 @@ function FondoMetamorfosis() {
       });
       context.closePath();
 
-      const shade = Math.round(18 + brightness * 68);
-      context.fillStyle = `rgba(${shade}, ${shade}, ${shade}, 0.94)`;
+      const colors = [
+        `rgb(${Math.round(28 + brightness * 30)}, ${Math.round(31 + brightness * 28)}, ${Math.round(42 + brightness * 26)})`,
+        `rgb(${Math.round(18 + brightness * 20)}, ${Math.round(21 + brightness * 20)}, ${Math.round(30 + brightness * 18)})`,
+        `rgb(${Math.round(12 + brightness * 16)}, ${Math.round(14 + brightness * 16)}, ${Math.round(22 + brightness * 14)})`,
+      ];
+      const fillColor = colors[(tile.column + tile.row) % colors.length];
+
+      context.fillStyle = fillColor;
       context.fill();
-      context.strokeStyle = `rgba(${Math.round(92 + brightness * 130)}, ${Math.round(92 + brightness * 130)}, ${Math.round(92 + brightness * 130)}, ${0.18 + brightness * 0.55})`;
+      context.strokeStyle = `rgba(195, 200, 222, ${0.08 + brightness * 0.14})`;
       context.lineWidth = morph > 0.78 ? 1.4 : 1;
       context.stroke();
     };
@@ -104,14 +110,15 @@ function FondoMetamorfosis() {
       context.clearRect(0, 0, width, height);
 
       const background = context.createLinearGradient(0, 0, width, height);
-      background.addColorStop(0, '#050505');
-      background.addColorStop(0.5, '#171819');
-      background.addColorStop(1, '#070707');
+      background.addColorStop(0, '#08060d');
+      background.addColorStop(0.35, '#120d1a');
+      background.addColorStop(0.7, '#18121f');
+      background.addColorStop(1, '#08060d');
       context.fillStyle = background;
       context.fillRect(0, 0, width, height);
 
       const bandGlow = context.createRadialGradient(width * 0.52, height * 0.5, 0, width * 0.52, height * 0.5, width * 0.58);
-      bandGlow.addColorStop(0, 'rgba(255, 255, 255, 0.07)');
+      bandGlow.addColorStop(0, 'rgba(255, 255, 255, 0.05)');
       bandGlow.addColorStop(1, 'rgba(255, 255, 255, 0)');
       context.fillStyle = bandGlow;
       context.fillRect(0, 0, width, height);
@@ -163,4 +170,4 @@ function FondoMetamorfosis() {
   );
 }
 
-export default FondoMetamorfosis;
+export default MetamorphosisBackground;

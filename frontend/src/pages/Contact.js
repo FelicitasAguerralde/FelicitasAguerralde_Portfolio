@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import '../styles/Contact.css';
 import { API_URL } from '../config/global';
+import MetamorphosisBackground from '../background/MetamorphosisBackground';
 
 const Contact = ({ email, github, linkedin }) => {
   const [formData, setFormData] = useState({
@@ -73,6 +74,7 @@ const Contact = ({ email, github, linkedin }) => {
 
   return (
     <section id="contact" className="contact">
+            <MetamorphosisBackground />
       <div className="container">
         <h2 className="section-title">
           Contacta<span className="highlight">me</span>

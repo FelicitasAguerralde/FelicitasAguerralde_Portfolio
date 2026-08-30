@@ -1,9 +1,12 @@
 .fondo-metamorfosis {
-  position: relative;
-  min-height: 100svh;
+  position: absolute;
+  inset: 0;
   width: 100%;
+  height: 100%;
   overflow: hidden;
   background: #050505;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .fondo-metamorfosis-canvas {

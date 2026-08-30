@@ -117,7 +117,7 @@ const Projects = ({ projects }) => {
 
   return (
     <section id="projects" className="projects">
-      <div className="container">
+      <div className="container projects-inner">
         <h2 className="section-title">Mis <span className="highlight">Proyectos</span></h2>
         {/* Filtros por categoría */}
         <div className="projects-filters">
