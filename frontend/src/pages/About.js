@@ -46,16 +46,16 @@ const About = ({ location, email, phone, birthDate }) => {
                   <span className="about-info-label">PERFIL</span>
                   <h3>Felicitas Aguerralde</h3>
                   <dl>
-                    <div>
-                      <dt>Dirección</dt>
-                      <dd>{location || 'No especificada'}</dd>
-                    </div>
                     {birthDate && (
                       <div>
                         <dt>Nacimiento</dt>
                         <dd>{birthDate}</dd>
                       </div>
                     )}
+                    <div>
+                      <dt>Dirección</dt>
+                      <dd>{location || 'No especificada'}</dd>
+                    </div>
                     <div>
                       <dt>Email</dt>
                       <dd>{email || 'No especificado'}</dd>
