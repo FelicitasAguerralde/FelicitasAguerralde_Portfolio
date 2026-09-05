@@ -126,6 +126,13 @@
     aspect-ratio: 1 / 1.15;
     cursor: pointer;
     perspective: 1100px;
+    transform-style: preserve-3d;
+    transition: transform 500ms ease, filter 500ms ease;
+}
+
+.about-photo-card:hover {
+    filter: drop-shadow(0 24px 24px rgba(0, 0, 0, 0.28));
+    transform: translateZ(18px) rotateX(4deg) rotateY(-5deg);
 }
 
 .about-photo-card-inner {
@@ -269,6 +276,11 @@
 
     .photo.is-visible .about-photo-card:hover .about-photo-card-inner {
         transform: rotateY(180deg);
+    }
+
+    .about-photo-card {
+        transform: none;
+        transition: none;
     }
 }
 
