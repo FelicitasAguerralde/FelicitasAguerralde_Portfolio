@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../styles/Projects.css';
 const Projects = ({ projects }) => {
@@ -10,6 +10,8 @@ const Projects = ({ projects }) => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [filter, setFilter] = useState('all');
   const [revealNonce, setRevealNonce] = useState(0);
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   // Categorías únicas de proyectos
   const categories = ['all', ...new Set(projects.map(project => 
@@ -36,6 +38,19 @@ const Projects = ({ projects }) => {
     const timer = setTimeout(() => setIsAnimating(false), 300);
     return () => clearTimeout(timer);
   }, [filter]);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.2 },
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (location.hash !== '#projects') return undefined;
@@ -138,7 +153,7 @@ const Projects = ({ projects }) => {
   }
 
   return (
-    <section id="projects" className="projects">
+    <section ref={sectionRef} id="projects" className={`projects ${isVisible ? 'is-visible' : ''}`}>
       <div className="container projects-inner">
         <h2 className="section-title">Mis <span className="highlight">Proyectos</span></h2>
         {/* Filtros por categoría */}

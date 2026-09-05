@@ -116,7 +116,7 @@ const Skills = ({ skills }) => {
   }, [currentPage, indexOfFirstSkill, currentSkills, isVisible]);
 
   return (
-    <section ref={sectionRef} id="skills" className="skills">
+    <section ref={sectionRef} id="skills" className={`skills ${isVisible ? 'is-visible' : ''}`}>
       <HexagonBackground />
       <div className="container skills-inner">
         <h2 className="section-title">Mis <span className="highlight">Habilidades</span></h2>

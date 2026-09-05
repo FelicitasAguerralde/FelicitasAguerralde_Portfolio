@@ -638,3 +638,58 @@ p.section-subtitle{
     width: 100%;
   }
 }
+
+/* Aparición escalonada de contacto */
+.contact-card,
+.contact-form-container {
+  animation: contact-card-appear 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.contact-card:nth-child(2) { animation-delay: 100ms; }
+.contact-card:nth-child(3) { animation-delay: 200ms; }
+.contact-form-container { animation-delay: 300ms; }
+
+@keyframes contact-card-appear {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-card,
+  .contact-form-container {
+    animation: none;
+  }
+}
+
+.contact .contact-card,
+.contact .contact-form-container {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: none;
+}
+
+.contact.is-visible .contact-card,
+.contact.is-visible .contact-form-container {
+  animation-name: contact-card-appear;
+  animation-duration: 900ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact .contact-card,
+  .contact .contact-form-container,
+  .contact.is-visible .contact-card,
+  .contact.is-visible .contact-form-container {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}

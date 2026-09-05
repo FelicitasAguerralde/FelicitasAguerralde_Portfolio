@@ -1,8 +1,8 @@
 // Contact.js - Sección de contacto
-import { useState } from 'react';
-import '../styles/Contact.css';
-import { API_URL } from '../config/global';
+import { useEffect, useRef, useState } from 'react';
 import MetamorphosisBackground from '../background/MetamorphosisBackground';
+import { API_URL } from '../config/global';
+import '../styles/Contact.css';
 
 const Contact = ({ email, github, linkedin }) => {
   const [formData, setFormData] = useState({
@@ -15,6 +15,21 @@ const Contact = ({ email, github, linkedin }) => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.2 },
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -73,7 +88,7 @@ const Contact = ({ email, github, linkedin }) => {
   };
 
   return (
-    <section id="contact" className="contact">
+    <section ref={sectionRef} id="contact" className={`contact ${isVisible ? 'is-visible' : ''}`}>
             <MetamorphosisBackground />
       <div className="container">
         <h2 className="section-title">

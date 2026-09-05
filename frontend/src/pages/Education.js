@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import MotionBackground from '../background/MotionBackground';
 import educationData from '../data/education.json';
 import '../styles/Education.css';
@@ -7,7 +7,22 @@ const Education = () => {
   const { academic, courses } = educationData;
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
   const itemsPerPage = 6; // Adjust as needed
+
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.2 },
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   // Filter courses by category
   const filteredCourses =
@@ -33,7 +48,7 @@ const Education = () => {
   };
 
   return (
-    <section className="education-section" id="education">
+    <section ref={sectionRef} className={`education-section ${isVisible ? 'is-visible' : ''}`} id="education">
       <MotionBackground />
 
       <div className="education-inner">

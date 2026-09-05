@@ -53,8 +53,8 @@
 
 .about-title {
     opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 700ms ease-out, transform 700ms ease-out;
+    transform: translateY(12px);
+    transition: opacity 850ms cubic-bezier(0.22, 1, 0.36, 1), transform 850ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .about-title.is-visible {
@@ -74,8 +74,8 @@
 .about-content .photo{
     width: 30%;
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
+    transform: translateY(14px);
+    transition: opacity 950ms cubic-bezier(0.22, 1, 0.36, 1), transform 950ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .about-content .photo.is-visible {
@@ -89,8 +89,8 @@
     margin-left: 40px;
     margin-right: 40px;
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
+    transform: translateY(14px);
+    transition: opacity 950ms cubic-bezier(0.22, 1, 0.36, 1), transform 950ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .about-content .text.is-visible {
@@ -100,8 +100,8 @@
 
 .about-content .text p {
     opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 650ms ease-out, transform 650ms ease-out;
+    transform: translateY(10px);
+    transition: opacity 800ms cubic-bezier(0.22, 1, 0.36, 1), transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .about-content .text.is-visible p {

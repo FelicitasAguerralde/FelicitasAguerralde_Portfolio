@@ -329,6 +329,35 @@
   }
 }
 
+/* Aparición escalonada de las tarjetas */
+.skill-item {
+  animation: skill-card-appear 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.skill-item:nth-child(2) { animation-delay: 80ms; }
+.skill-item:nth-child(3) { animation-delay: 160ms; }
+.skill-item:nth-child(4) { animation-delay: 240ms; }
+.skill-item:nth-child(5) { animation-delay: 320ms; }
+.skill-item:nth-child(6) { animation-delay: 400ms; }
+
+@keyframes skill-card-appear {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-item {
+    animation: none;
+  }
+}
+
 /* Paginación */
 .pagination {
   display: flex;
@@ -348,6 +377,28 @@
   cursor: pointer;
   transition: var(--transition);
   font-weight: 500;
+}
+
+.skills .skill-item {
+  opacity: 0;
+  transform: translateY(14px) scale(0.99);
+  animation: none;
+}
+
+.skills.is-visible .skill-item {
+  animation-name: skill-card-appear;
+  animation-duration: 900ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills .skill-item,
+  .skills.is-visible .skill-item {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
 }
 
 .pagination-btn:hover:not(:disabled) {
