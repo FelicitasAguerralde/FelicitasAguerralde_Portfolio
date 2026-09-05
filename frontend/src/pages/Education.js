@@ -43,20 +43,24 @@ const Education = () => {
         <div className="education-block">
           <h3 className="education-subtitle">Formación Académica</h3>
 
-          <div className="education-grid">
+          <div className="academic-timeline">
             {academic.map((item, index) => (
-              <div className="education-card" key={index}>
-                <h3>{item.title}</h3>
+              <article className="academic-card" key={index}>
+                <div className="academic-marker" aria-hidden="true" />
+                <div className="academic-card-header">
+                  <span className="academic-period">
+                    {item.startYear} – {item.endYear}
+                  </span>
+                  <span className={`academic-status ${item.endYear === 'Presente' ? 'current' : ''}`}>
+                    {item.endYear === 'Presente' ? 'En curso' : item.status?.split(' – ')[0] || 'Finalizado'}
+                  </span>
+                </div>
+                <h4>{item.title}</h4>
 
                 <div className="institution">{item.institution}</div>
-
-                <div className="date">
-                  {item.startYear} – {item.endYear}
-                </div>
-
-                {item.status && <p>{item.status}</p>}
                 {item.description && <p>{item.description}</p>}
-              </div>
+                {item.status && <span className="academic-detail">{item.status}</span>}
+              </article>
             ))}
           </div>
         </div>
@@ -66,10 +70,10 @@ const Education = () => {
           <h3 className="education-subtitle">Cursos y Certificaciones</h3>
 
           {/* Filter buttons */}
-          <div className="projects-filters">
-            <div className="filter-buttons filters-container">
+          <div className="education-controls">
+            <div className="education-filter-buttons">
               <button
-                className={`filter-btn ${
+                className={`education-filter-btn ${
                   selectedCategory === 'all' ? 'active' : ''
                 }`}
                 onClick={() => handleCategoryChange('all')}
@@ -77,7 +81,7 @@ const Education = () => {
                 Todos
               </button>
               <button
-                className={`filter-btn ${
+                className={`education-filter-btn ${
                   selectedCategory === 'programacion' ? 'active' : ''
                 }`}
                 onClick={() => handleCategoryChange('programacion')}
@@ -85,7 +89,7 @@ const Education = () => {
                 Programación
               </button>
               <button
-                className={`filter-btn ${
+                className={`education-filter-btn ${
                   selectedCategory === 'educacion' ? 'active' : ''
                 }`}
                 onClick={() => handleCategoryChange('educacion')}
@@ -101,21 +105,23 @@ const Education = () => {
             </div>
           </div>
 
-          <div className="education-grid">
+          <div className="courses-grid">
             {currentCourses.map((course, index) => (
-              <div className="education-card" key={index}>
-                <h3>{course.title}</h3>
+              <article className="course-card" key={index}>
+                <div className="course-card-header">
+                  <span className="course-year">{course.year}</span>
+                  <span className="course-category">{course.category === 'programacion' ? 'Programación' : 'Educación'}</span>
+                </div>
+                <h4>{course.title}</h4>
 
                 <div className="institution">{course.institution}</div>
-
-                <div className="date">{course.year}</div>
 
                 {course.description && <p>{course.description}</p>}
 
                 {course.technologies && (
-                  <div className="education-tags">
+                  <div className="course-tags">
                     {course.technologies.map((tech, i) => (
-                      <span className="education-tag" key={i}>
+                      <span className="course-tag" key={i}>
                         {tech}
                       </span>
                     ))}
@@ -127,22 +133,22 @@ const Education = () => {
                     href={course.certificateUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="education-link"
+                    className="course-link"
                   >
                     Ver certificado
                   </a>
                 )}
-              </div>
+              </article>
             ))}
           </div>
 
           {/* Pagination */}
           {totalPages > 1 && (
-            <div className="pagination">
+            <div className="education-pagination">
               <button
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="pagination-btn"
+                className="education-pagination-btn"
               >
                 Anterior
               </button>
@@ -150,7 +156,7 @@ const Education = () => {
                 <button
                   key={page}
                   onClick={() => handlePageChange(page)}
-                  className={`pagination-btn ${
+                  className={`education-pagination-btn ${
                     page === currentPage ? 'active' : ''
                   }`}
                 >
@@ -160,7 +166,7 @@ const Education = () => {
               <button
                 onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="pagination-btn"
+                className="education-pagination-btn"
               >
                 Siguiente
               </button>
