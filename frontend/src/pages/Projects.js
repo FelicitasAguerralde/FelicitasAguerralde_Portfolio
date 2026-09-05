@@ -359,6 +359,18 @@ const ProjectCard = ({ project, index = 0 }) => {
           }}
         />
         <div className="project-overlay">
+          <div className="project-overlay-info">
+            <span className="project-overlay-label">RESUMEN</span>
+            <p>{project.description}</p>
+            <div className="project-overlay-tech">
+              {project.technologies.slice(0, 5).map((tech) => (
+                <span key={tech}>{tech}</span>
+              ))}
+              {project.technologies.length > 5 && (
+                <span>+{project.technologies.length - 5}</span>
+              )}
+            </div>
+          </div>
           <Link 
             to={`/proyectos/${project.id}`}
             className="project-view-btn" 
@@ -378,23 +390,6 @@ const ProjectCard = ({ project, index = 0 }) => {
           <h3 className="project-title">{project.title}</h3>
           {project.category && (
             <span className="project-category">{project.category}</span>
-          )}
-        </div>
-        
-        <p className="project-description" title={project.description}>
-          {project.description}
-        </p>
-        
-        <div className="project-tech">
-          {project.technologies.slice(0, 4).map((tech, idx) => (
-            <span key={idx} className="tech-tag" title={tech}>
-              {tech}
-            </span>
-          ))}
-          {project.technologies.length > 4 && (
-            <span className="tech-tag more-tech" title={`+${project.technologies.length - 4} tecnologías más`}>
-              +{project.technologies.length - 4}
-            </span>
           )}
         </div>
         
