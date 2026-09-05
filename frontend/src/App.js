@@ -97,9 +97,9 @@ function App() {
                   experience={portfolioData.experience}
                 />
 
-                <Skills skills={skills} />
-
                 <Projects projects={projects} />
+
+                <Skills skills={skills} />
 
                 <Education />
                 <Contact

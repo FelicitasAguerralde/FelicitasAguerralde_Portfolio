@@ -86,18 +86,18 @@ const Navbar = ({ name, darkMode, toggleTheme }) => {
           </li>
           <li className="navbar-item">
             <button
-              onClick={() => scrollToSection('skills')}
-              className="navbar-link"
-            >
-              Habilidades
-            </button>
-          </li>
-          <li className="navbar-item">
-            <button
               onClick={() => scrollToSection('projects')}
               className="navbar-link"
             >
               Proyectos
+            </button>
+          </li>
+          <li className="navbar-item">
+            <button
+              onClick={() => scrollToSection('skills')}
+              className="navbar-link"
+            >
+              Habilidades
             </button>
           </li>
           <li className="navbar-item">
@@ -111,14 +111,13 @@ const Navbar = ({ name, darkMode, toggleTheme }) => {
         </ul>
 
         <div className="navbar-actions">
-        
-          <a
-            href="#contact"
+          <button
+            type="button"
             className="btn"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={() => scrollToSection('contact')}
           >
             Contactame
-          </a>
+          </button>
 
           <button
             className={`navbar-hamburger ${isMenuOpen ? 'active' : ''}`}
