@@ -1,5 +1,5 @@
 // Skills.js con paginación
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { FaCode, FaServer, FaWrench } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import HexagonBackground from '../background/HexagonBackground';
@@ -33,8 +33,10 @@ const categoryData = {
 
 const Skills = ({ skills }) => {
   const navigate = useNavigate();
+  const sectionRef = useRef(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [animatedLevels, setAnimatedLevels] = useState({});
+  const [isVisible, setIsVisible] = useState(false);
   const skillsPerPage = 6; // Mostrar 6 habilidades por página
 
   // Calcular índices
@@ -58,6 +60,26 @@ const Skills = ({ skills }) => {
   };
 
   useEffect(() => {
+    const node = sectionRef.current;
+
+    if (!node) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.25 },
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) {
+      setAnimatedLevels({});
+      return undefined;
+    }
+
     let rafId = null;
     let startTs = null;
     const durationMs = 2200;
@@ -91,10 +113,10 @@ const Skills = ({ skills }) => {
     return () => {
       if (rafId) cancelAnimationFrame(rafId);
     };
-  }, [currentPage, indexOfFirstSkill, currentSkills]);
+  }, [currentPage, indexOfFirstSkill, currentSkills, isVisible]);
 
   return (
-    <section id="skills" className="skills">
+    <section ref={sectionRef} id="skills" className="skills">
       <HexagonBackground />
       <div className="container skills-inner">
         <h2 className="section-title">Mis <span className="highlight">Habilidades</span></h2>
