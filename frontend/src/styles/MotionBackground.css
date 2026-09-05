@@ -3,7 +3,7 @@
   min-height: 100svh;
   width: 100%;
   overflow: hidden;
-  background: #020304;
+  background: transparent;
 }
 
 .fondo-combinado-canvas {
@@ -12,4 +12,5 @@
   width: 100%;
   height: 100%;
   display: block;
+  opacity: 0.58;
 }

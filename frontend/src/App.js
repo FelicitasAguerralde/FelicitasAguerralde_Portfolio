@@ -31,21 +31,13 @@ function ScrollToTop() {
 }
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
   const [projects, setProjects] = useState([]);
 
   // Cargar proyectos y manejar dark mode
   useEffect(() => {
     setProjects(projectsData);
-
-    if (darkMode) {
-      document.documentElement.classList.add('dark-mode');
-    } else {
-      document.documentElement.classList.remove('dark-mode');
-    }
-
     document.body.style.overflow = 'auto';
-  }, [darkMode]);
+  }, []);
 
   // Calcular skills desde proyectos
   const skills = useMemo(() => {
@@ -68,17 +60,11 @@ function App() {
       .sort((a, b) => b.level - a.level);
   }, [projects]);
 
-  const toggleTheme = () => {
-    setDarkMode((prev) => !prev);
-  };
 
   return (
     <div className="app">
       <ScrollToTop />
       <Navbar
-        name={portfolioData.personalInfo.name}
-        darkMode={darkMode}
-        toggleTheme={toggleTheme}
       />
       <CVButton />
 
@@ -92,6 +78,7 @@ function App() {
                 <Hero
                   name={portfolioData.personalInfo.name}
                   title={portfolioData.personalInfo.title}
+                  description={portfolioData.personalInfo.description}
                   location={portfolioData.personalInfo.location}
                   email={portfolioData.personalInfo.email}
                   github={portfolioData.social.github}
