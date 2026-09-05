@@ -1,7 +1,27 @@
+import { useEffect, useState } from 'react';
 import CubesBackground from '../background/CubesBackground';
 import '../styles/Hero.css';
 
+const programmingPhrases = [
+  'Amante del frontend',
+  'Experiencias de usuario atractivas y funcionales',
+  'Apasionada y comprometida',
+  'En constante aprendizaje'
+];
+
 const Hero = ({ name, title, description}) => {
+  const [phraseIndex, setPhraseIndex] = useState(0);
+
+  useEffect(() => {
+    const phraseTimer = setInterval(() => {
+      setPhraseIndex((currentIndex) => (
+        (currentIndex + 1) % programmingPhrases.length
+      ));
+    }, 3500);
+
+    return () => clearInterval(phraseTimer);
+  }, []);
+
   return (
     <section id="hero" className="hero">
       <CubesBackground />
@@ -12,8 +32,15 @@ const Hero = ({ name, title, description}) => {
             <span className="hero-highlight">{name}</span>
           </h1>
           <p className="hero-subtitle">{title}</p>
-          <p className="hero-description">
-            <span>{description}</span>
+          <p
+            key={phraseIndex}
+            className="hero-rotating-text typewriter-phrase"
+            style={{
+              '--typewriter-characters': programmingPhrases[phraseIndex].length,
+            }}
+            aria-live="polite"
+          >
+            {programmingPhrases[phraseIndex]}
           </p>
         </div>
       </div>

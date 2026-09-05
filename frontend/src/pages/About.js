@@ -11,31 +11,24 @@ const About = () => {
 
     if (!node) return;
 
-    const handleScroll = () => {
-      const rect = node.getBoundingClientRect();
-      const visible = rect.top < window.innerHeight * 0.8 && rect.bottom > 0;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.25 },
+    );
 
-      if (visible) {
-        setIsVisible(true);
-        window.removeEventListener('scroll', handleScroll);
-        window.removeEventListener('resize', handleScroll);
-      }
-    };
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleScroll);
+    observer.observe(node);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
+      observer.disconnect();
     };
   }, []);
 
   return (
     <section ref={sectionRef} id="about" className="about">
       <div className="container about-inner">
-        <h2 className="section-title">
+        <h2 className={`section-title about-title ${isVisible ? 'is-visible' : ''}`}>
           Sobre <span className="highlight">mí</span>
         </h2>
         <div className="about-content">

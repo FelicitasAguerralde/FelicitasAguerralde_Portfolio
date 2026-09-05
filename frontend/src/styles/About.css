@@ -10,6 +10,17 @@
     z-index: 3;
 }
 
+.about-title {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 700ms ease-out, transform 700ms ease-out;
+}
+
+.about-title.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .about-content {
     display: flex;
     flex-direction: row;
@@ -46,12 +57,46 @@
     transform: translateY(0);
 }
 
+.about-content .text p {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 650ms ease-out, transform 650ms ease-out;
+}
+
+.about-content .text.is-visible p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-content .text.is-visible p:nth-child(1) {
+    transition-delay: 180ms;
+}
+
+.about-content .text.is-visible p:nth-child(2) {
+    transition-delay: 340ms;
+}
+
+.about-content .text.is-visible p:nth-child(3) {
+    transition-delay: 500ms;
+}
+
 .about-content .photo img{
     width: 100%;
 }
 
 .about .fondo-lluvia-container {
     z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-title,
+    .about-content .photo,
+    .about-content .text,
+    .about-content .text p {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }
 
 @media (max-width: 768px) {
