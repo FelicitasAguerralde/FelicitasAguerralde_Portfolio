@@ -1,7 +1,34 @@
 // Skills.js con paginación
 import { useEffect, useMemo, useState } from 'react';
+import { FaCode, FaServer, FaWrench } from 'react-icons/fa';
 import HexagonBackground from '../background/HexagonBackground';
 import '../styles/Skills.css';
+
+const frontendSkills = new Set([
+  'React', 'React Router DOM', 'React Bootstrap', 'React Icons', 'React Toastify',
+  'React Helmet Async', 'React Ga4', 'Angular', 'HTML5', 'CSS3', 'JavaScript',
+  'Typewriter Effect', 'Bootstrap', 'Figma (Design System)', 'Vite', 'i18next',
+  'chart.js', 'Google Analytics', 'OpenWeather API',
+]);
+
+const backendSkills = new Set([
+  'Node.js', 'Express.js', 'Express', 'MongoDB', 'Mongoose', 'PostgreSQL',
+  'MySQL', 'Spring Boot', 'API REST', 'Express Validator', 'Nodemailer',
+  'Resend', 'Jsonwebtoken', 'Jwt Simple', 'Bcryptjs', 'Multer', 'CORS',
+  'Jest', 'Supertest',
+]);
+
+const getSkillCategory = (skillName) => {
+  if (frontendSkills.has(skillName)) return 'frontend';
+  if (backendSkills.has(skillName)) return 'backend';
+  return 'tools';
+};
+
+const categoryData = {
+  frontend: { label: 'Frontend', icon: FaCode },
+  backend: { label: 'Backend', icon: FaServer },
+  tools: { label: 'Herramientas', icon: FaWrench },
+};
 
 const Skills = ({ skills }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -68,16 +95,36 @@ const Skills = ({ skills }) => {
         <div className="skills-grid">
           {currentSkills.map((skill, index) => (
             <div key={index} className="skill-item">
-              <span className="skill-name">{skill.name}</span>
+              {(() => {
+                const category = getSkillCategory(skill.name);
+                const { label, icon: CategoryIcon } = categoryData[category];
+
+                return (
+                  <>
+                    <div className="skill-header">
+                      <div className="skill-title">
+                        <span className={`skill-icon ${category}`} aria-hidden="true">
+                          <CategoryIcon />
+                        </span>
+                        <span className="skill-name">{skill.name}</span>
+                      </div>
+                      <span className={`skill-category ${category}`}>{label}</span>
+                    </div>
+                  </>
+                );
+              })()}
               <div className="skill-bar">
                 <div 
                   className="skill-progress" 
                   style={{ width: `${animatedLevels[String(indexOfFirstSkill + index)] ?? 0}%` }}
                 ></div>
               </div>
-              <span className="skill-percent">
-                {Math.round(animatedLevels[String(indexOfFirstSkill + index)] ?? 0)}%
-              </span>
+              <div className="skill-info">
+                <span className="skill-context">Presente en proyectos</span>
+                <span className="skill-percent">
+                  {Math.round(animatedLevels[String(indexOfFirstSkill + index)] ?? 0)}%
+                </span>
+              </div>
             </div>
           ))}
         </div>

@@ -70,6 +70,14 @@ const Navbar = ({ name, darkMode, toggleTheme }) => {
         <ul className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
           <li className="navbar-item">
             <button
+              onClick={() => scrollToSection('hero')}
+              className="navbar-link"
+            >
+              Inicio
+            </button>
+          </li>
+          <li className="navbar-item">
+            <button
               onClick={() => scrollToSection('about')}
               className="navbar-link"
             >
