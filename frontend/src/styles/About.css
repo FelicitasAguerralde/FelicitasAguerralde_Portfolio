@@ -143,7 +143,7 @@
 }
 
 .photo.is-visible .about-photo-card-inner {
-    animation: about-card-flip 12s ease-in-out infinite;
+    animation: about-card-flip 10s ease-in-out infinite;
 }
 
 .photo.is-visible .about-photo-card:hover .about-photo-card-inner {
