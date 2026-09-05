@@ -36,8 +36,18 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  box-shadow:
+    0 20px 42px rgba(0, 0, 0, 0.32),
+    0 5px 12px rgba(0, 0, 0, 0.24),
+    0 0 0 1px rgba(139, 92, 246, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
   text-align: left;
+  cursor: pointer;
+}
+
+.skill-item:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
 .skill-header {
@@ -84,7 +94,11 @@
 
 .skill-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.32);
+  box-shadow:
+    0 26px 52px rgba(0, 0, 0, 0.42),
+    0 8px 18px rgba(0, 0, 0, 0.28),
+    0 0 24px rgba(139, 92, 246, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .skill-item::before {

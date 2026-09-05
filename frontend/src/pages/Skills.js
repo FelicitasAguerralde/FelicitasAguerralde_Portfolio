@@ -1,6 +1,7 @@
 // Skills.js con paginación
 import { useEffect, useMemo, useState } from 'react';
 import { FaCode, FaServer, FaWrench } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import HexagonBackground from '../background/HexagonBackground';
 import '../styles/Skills.css';
 
@@ -31,6 +32,7 @@ const categoryData = {
 };
 
 const Skills = ({ skills }) => {
+  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const [animatedLevels, setAnimatedLevels] = useState({});
   const skillsPerPage = 6; // Mostrar 6 habilidades por página
@@ -50,6 +52,10 @@ const Skills = ({ skills }) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const nextPage = () => setCurrentPage(prev => Math.min(prev + 1, totalPages));
   const prevPage = () => setCurrentPage(prev => Math.max(prev - 1, 1));
+
+  const openSkillProjects = (skillName) => {
+    navigate(`/?skill=${encodeURIComponent(skillName)}#projects`);
+  };
 
   useEffect(() => {
     let rafId = null;
@@ -94,7 +100,20 @@ const Skills = ({ skills }) => {
         <h2 className="section-title">Mis <span className="highlight">Habilidades</span></h2>
         <div className="skills-grid">
           {currentSkills.map((skill, index) => (
-            <div key={index} className="skill-item">
+            <div
+              key={index}
+              className="skill-item"
+              role="button"
+              tabIndex={0}
+              onClick={() => openSkillProjects(skill.name)}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault();
+                  openSkillProjects(skill.name);
+                }
+              }}
+              aria-label={`Ver proyectos con ${skill.name}`}
+            >
               {(() => {
                 const category = getSkillCategory(skill.name);
                 const { label, icon: CategoryIcon } = categoryData[category];

@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../styles/Projects.css';
 const Projects = ({ projects }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const skillFilter = new URLSearchParams(location.search).get('skill') || '';
   const [currentPage, setCurrentPage] = useState(1);
   const [projectsPerPage, setProjectsPerPage] = useState(6);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -14,9 +17,18 @@ const Projects = ({ projects }) => {
   ))];
 
   // Filtrar proyectos
-  const filteredProjects = filter === 'all' 
-    ? projects 
-    : projects.filter(project => (project.category || 'web') === filter);
+  const filteredProjects = skillFilter
+    ? projects.filter(project => project.technologies?.some(
+      technology => technology.toLowerCase() === skillFilter.toLowerCase()
+    ))
+    : filter === 'all'
+      ? projects
+      : projects.filter(project => (project.category || 'web') === filter);
+
+  const handleCategoryFilter = (category) => {
+    setFilter(category);
+    navigate(location.pathname, { replace: true });
+  };
 
   // Efecto para animación solo al cambiar filtro
   useEffect(() => {
@@ -24,6 +36,16 @@ const Projects = ({ projects }) => {
     const timer = setTimeout(() => setIsAnimating(false), 300);
     return () => clearTimeout(timer);
   }, [filter]);
+
+  useEffect(() => {
+    if (location.hash !== '#projects') return undefined;
+
+    const scrollTimer = setTimeout(() => {
+      document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+
+    return () => clearTimeout(scrollTimer);
+  }, [location.hash, location.search]);
 
   // Re-disparar animación de aparición solo al cambiar filtro
   useEffect(() => {
@@ -126,8 +148,8 @@ const Projects = ({ projects }) => {
               {categories.map((category) => (
                 <button
                   key={category}
-                  onClick={() => setFilter(category)}
-                  className={`filter-btn ${filter === category ? 'active' : ''}`}
+                  onClick={() => handleCategoryFilter(category)}
+                  className={`filter-btn ${!skillFilter && filter === category ? 'active' : ''}`}
                 >
                   {category === 'all' ? 'Todos' : 
                    category === 'web' ? 'Web' :
@@ -143,7 +165,9 @@ const Projects = ({ projects }) => {
           
           <div className="projects-count">
             <span className="count-number">{filteredProjects.length}</span>
-            <span className="count-label">proyectos {filter !== 'all' && `en ${filter}`}</span>
+            <span className="count-label">
+              {skillFilter ? `proyectos con ${skillFilter}` : filter !== 'all' ? `proyectos en ${filter}` : 'proyectos'}
+            </span>
           </div>
         </div>
 
