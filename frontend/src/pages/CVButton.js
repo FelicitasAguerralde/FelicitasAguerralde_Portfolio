@@ -1,10 +1,15 @@
+import { FaFileDownload } from 'react-icons/fa';
+import '../styles/CvButton.css';
 
-import "../styles/CvButton.css";
-import { FaFileDownload } from "react-icons/fa";
 const CVButton = () => {
   return (
-    <a href="/doc/CV_Aguerralde_Felicitas.pdf" download className="cv-button">
-      <FaFileDownload />
+    <a
+      href="/doc/CV_Felicitas_Aguerralde.pdf"
+      download
+      className="cv-button"
+      aria-label="Descargar currículum en PDF"
+    >
+      <FaFileDownload aria-hidden="true" />
       <span>Descargar CV</span>
     </a>
   );
