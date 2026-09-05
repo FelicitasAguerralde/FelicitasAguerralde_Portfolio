@@ -89,7 +89,10 @@ function App() {
                 <About
                   about={portfolioData.personalInfo.about}
                   bio={portfolioData.personalInfo.bio}
+                  location={portfolioData.personalInfo.location}
                   email={portfolioData.personalInfo.email}
+                  phone={portfolioData.personalInfo.phone}
+                  birthDate={portfolioData.personalInfo.birthDate}
                   education={portfolioData.education}
                   experience={portfolioData.experience}
                 />

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import photo from '../assets/images/photo.png';
 import '../styles/About.css';
 
-const About = () => {
+const About = ({ location, email, phone, birthDate }) => {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -33,11 +33,41 @@ const About = () => {
         </h2>
         <div className="about-content">
           <div className={`photo ${isVisible ? 'is-visible' : ''}`}>
-            <img
-              src={photo}
-              alt="Foto de perfil"
-              className="about-photo"
-            />
+            <div className="about-photo-card">
+              <div className="about-photo-card-inner">
+                <div className="about-photo-face about-photo-front">
+                  <img
+                    src={photo}
+                    alt="Foto de perfil"
+                    className="about-photo"
+                  />
+                </div>
+                <div className="about-photo-face about-info-back">
+                  <span className="about-info-label">PERFIL</span>
+                  <h3>Felicitas Aguerralde</h3>
+                  <dl>
+                    <div>
+                      <dt>Dirección</dt>
+                      <dd>{location || 'No especificada'}</dd>
+                    </div>
+                    {birthDate && (
+                      <div>
+                        <dt>Nacimiento</dt>
+                        <dd>{birthDate}</dd>
+                      </div>
+                    )}
+                    <div>
+                      <dt>Email</dt>
+                      <dd>{email || 'No especificado'}</dd>
+                    </div>
+                    <div>
+                      <dt>Teléfono</dt>
+                      <dd>{phone || 'No especificado'}</dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+            </div>
           </div>
           <div className={`text ${isVisible ? 'is-visible' : ''}`}>
           <p>
