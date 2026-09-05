@@ -655,10 +655,12 @@
 @keyframes projectSlideUp {
   0% {
     opacity: 0;
+    filter: blur(8px);
     transform: translateY(18px);
   }
   100% {
     opacity: 1;
+    filter: blur(0);
     transform: translateY(0);
   }
 }
@@ -790,8 +792,9 @@
 }
 
 .projects .project-card-reveal {
-  opacity: 0;
-  transform: translateY(18px);
+  opacity: 1;
+  filter: none;
+  transform: none;
   animation: none;
 }
 
@@ -806,6 +809,7 @@
   .projects .project-card-reveal,
   .projects.is-visible .project-card-reveal {
     opacity: 1;
+    filter: none;
     transform: none;
     animation: none;
   }
@@ -949,4 +953,42 @@
     transition: none;
     animation: none;
   }
+}
+
+.projects .pagination {
+  align-items: center;
+}
+
+/* Paginación final compartida */
+.projects .pagination .pagination-btn {
+  min-width: 2.4rem;
+  height: 2.4rem;
+  padding: 0 0.75rem;
+  color: var(--text-secondary);
+  background: rgba(13, 15, 24, 0.78);
+  border: 1px solid rgba(196, 181, 253, 0.16);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  box-shadow: none;
+}
+
+.projects .pagination .pagination-btn:hover:not(:disabled) {
+  color: #ffffff;
+  background: rgba(139, 92, 246, 0.18);
+  border-color: rgba(196, 181, 253, 0.42);
+  transform: translateY(-2px);
+}
+
+.projects .pagination .pagination-btn.active {
+  color: #ffffff;
+  background: linear-gradient(135deg, #8b5cf6, #4f46e5);
+  border-color: transparent;
+  box-shadow: 0 8px 18px rgba(79, 70, 229, 0.24);
+}
+
+.projects .pagination .pagination-btn:disabled {
+  color: #656b78;
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(255, 255, 255, 0.06);
+  opacity: 0.6;
 }

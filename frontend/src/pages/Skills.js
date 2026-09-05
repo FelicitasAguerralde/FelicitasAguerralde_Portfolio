@@ -66,7 +66,7 @@ const Skills = ({ skills }) => {
 
     const observer = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.25 },
+      { threshold: 0.05, rootMargin: '0px 0px -8% 0px' },
     );
 
     observer.observe(node);

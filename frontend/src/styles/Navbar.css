@@ -211,3 +211,96 @@
   --card-light-rgb: 30, 30, 30;
   --card-dark-rgb: 37, 37, 37;
 }
+
+/* ===== Shared portfolio navigation ===== */
+.navbar {
+  padding: 0.7rem 0;
+  background: rgba(8, 6, 13, 0.72);
+  border-bottom: 1px solid rgba(196, 181, 253, 0.14);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+}
+
+.navbar.scrolled {
+  padding: 0.55rem 0;
+  background: rgba(8, 6, 13, 0.9);
+  border-bottom-color: rgba(196, 181, 253, 0.24);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-container {
+  width: min(1240px, 100%);
+  gap: 1.5rem;
+}
+
+.navbar-logo {
+  flex-shrink: 0;
+  font-size: 1.35rem;
+  letter-spacing: 0.01em;
+}
+
+.navbar-menu {
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(196, 181, 253, 0.08);
+  border-radius: 10px;
+}
+
+.navbar-link {
+  padding: 0.48rem 0.72rem;
+  border-radius: 7px;
+  color: var(--text-secondary);
+  font-size: 0.84rem;
+  transition: color 220ms ease, background 220ms ease;
+}
+
+.navbar-link::after {
+  display: none;
+}
+
+.navbar-link:hover {
+  color: var(--text-highlight);
+  background: rgba(139, 92, 246, 0.16);
+}
+
+.navbar-actions .btn {
+  padding: 0.62rem 0.95rem;
+  background: linear-gradient(135deg, #8b5cf6, #4f46e5);
+  border-radius: 8px;
+  box-shadow: 0 8px 18px rgba(79, 70, 229, 0.22);
+  font-size: 0.82rem;
+}
+
+.navbar-hamburger {
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.55rem 0;
+  }
+
+  .navbar-container {
+    gap: 0.75rem;
+  }
+
+  .navbar-logo {
+    font-size: 1.15rem;
+  }
+
+  .navbar-menu {
+    top: 64px;
+    gap: 0.45rem;
+    padding: 1rem;
+    background: rgba(13, 15, 24, 0.96);
+    border: 1px solid rgba(196, 181, 253, 0.16);
+    border-radius: 0 0 12px 12px;
+  }
+
+  .navbar-link {
+    width: min(260px, 90vw);
+    padding: 0.7rem 1rem;
+    text-align: center;
+  }
+}

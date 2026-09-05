@@ -9,6 +9,7 @@ const Education = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [expandedAcademic, setExpandedAcademic] = useState(0);
   const itemsPerPage = 6; // Adjust as needed
 
   useEffect(() => {
@@ -17,7 +18,7 @@ const Education = () => {
 
     const observer = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.2 },
+      { threshold: 0.05, rootMargin: '0px 0px -8% 0px' },
     );
 
     observer.observe(node);
@@ -60,21 +61,39 @@ const Education = () => {
 
           <div className="academic-timeline">
             {academic.map((item, index) => (
-              <article className="academic-card" key={index}>
+              <article
+                className={`academic-card ${expandedAcademic === index ? 'expanded' : ''}`}
+                key={index}
+              >
                 <div className="academic-marker" aria-hidden="true" />
-                <div className="academic-card-header">
-                  <span className="academic-period">
-                    {item.startYear} – {item.endYear}
+                <button
+                  type="button"
+                  className="academic-trigger"
+                  aria-expanded={expandedAcademic === index}
+                  onClick={() => setExpandedAcademic(
+                    expandedAcademic === index ? null : index
+                  )}
+                >
+                  <span className="academic-period-column">
+                    <span className="academic-period">
+                      {item.startYear} – {item.endYear}
+                    </span>
+                    <span className={`academic-status ${item.endYear === 'Presente' ? 'current' : ''}`}>
+                      {item.endYear === 'Presente' ? 'En curso' : item.status?.split(' – ')[0] || 'Finalizado'}
+                    </span>
                   </span>
-                  <span className={`academic-status ${item.endYear === 'Presente' ? 'current' : ''}`}>
-                    {item.endYear === 'Presente' ? 'En curso' : item.status?.split(' – ')[0] || 'Finalizado'}
+                  <span className="academic-card-body">
+                    <span className="academic-title-row">
+                      <strong>{item.title}</strong>
+                      <span className="academic-chevron" aria-hidden="true">⌄</span>
+                    </span>
+                    <span className="institution">{item.institution}</span>
                   </span>
+                </button>
+                <div className="academic-card-details">
+                  {item.description && <p>{item.description}</p>}
+                  {item.status && <span className="academic-detail">{item.status}</span>}
                 </div>
-                <h4>{item.title}</h4>
-
-                <div className="institution">{item.institution}</div>
-                {item.description && <p>{item.description}</p>}
-                {item.status && <span className="academic-detail">{item.status}</span>}
               </article>
             ))}
           </div>

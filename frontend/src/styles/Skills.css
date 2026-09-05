@@ -282,14 +282,14 @@
 }
 
 .stat-label {
+  color: var(--text-light);
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
 
 .skill-context {
   color: var(--text-secondary);
   font-size: 0.78rem;
-}
-  color: var(--text-light);
-  opacity: 0.8;
-  font-size: 0.9rem;
 }
 
 /* Responsive */
@@ -343,11 +343,13 @@
 @keyframes skill-card-appear {
   from {
     opacity: 0;
+    filter: blur(8px);
     transform: translateY(14px) scale(0.99);
   }
 
   to {
     opacity: 1;
+    filter: blur(0);
     transform: translateY(0) scale(1);
   }
 }
@@ -381,6 +383,7 @@
 
 .skills .skill-item {
   opacity: 0;
+  filter: blur(8px);
   transform: translateY(14px) scale(0.99);
   animation: none;
 }
@@ -396,6 +399,7 @@
   .skills .skill-item,
   .skills.is-visible .skill-item {
     opacity: 1;
+    filter: none;
     transform: none;
     animation: none;
   }
@@ -446,4 +450,51 @@
 .dark-mode .pagination-number.active {
   background-color: var(--accent);
   color: white;
+}
+
+/* Paginación unificada */
+.skills .pagination {
+  gap: 0.45rem;
+  margin-top: 2.25rem;
+}
+
+.skills .pagination-btn,
+.projects .pagination-btn,
+.education-pagination-btn {
+  min-width: 2.4rem;
+  height: 2.4rem;
+  padding: 0 0.75rem;
+  color: var(--text-secondary);
+  background: rgba(13, 15, 24, 0.78);
+  border: 1px solid rgba(196, 181, 253, 0.16);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  box-shadow: none;
+}
+
+.skills .pagination-btn:hover:not(:disabled),
+.projects .pagination-btn:hover:not(:disabled),
+.education-pagination-btn:hover:not(:disabled) {
+  color: #ffffff;
+  background: rgba(139, 92, 246, 0.18);
+  border-color: rgba(196, 181, 253, 0.42);
+  transform: translateY(-2px);
+}
+
+.skills .pagination-btn.active,
+.projects .pagination-btn.active,
+.education-pagination-btn.active {
+  color: #ffffff;
+  background: linear-gradient(135deg, #8b5cf6, #4f46e5);
+  border-color: transparent;
+  box-shadow: 0 8px 18px rgba(79, 70, 229, 0.24);
+}
+
+.skills .pagination-btn:disabled,
+.projects .pagination-btn:disabled,
+.education-pagination-btn:disabled {
+  color: #656b78;
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(255, 255, 255, 0.06);
+  opacity: 0.6;
 }

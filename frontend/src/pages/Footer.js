@@ -37,7 +37,7 @@ const Footer = ({ name }) => {
               {name} software developer
             </div>
             <p className="footer-text">
-              “Every problem is an opportunity to learn.”
+              “Cada problema es una oportunidad para aprender.”
             </p>
             
             {/* Enlaces de redes sociales (opcional) */}
@@ -77,7 +77,7 @@ const Footer = ({ name }) => {
             </div>
             
             <p className="footer-copyright">
-              © {currentYear} {name}. All rights reserved
+              © {currentYear} {name}. Todos los derechos reservados
             </p>
           </div>
         </div>

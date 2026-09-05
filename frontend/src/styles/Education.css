@@ -430,20 +430,27 @@
 }
 
 .academic-card {
-  padding: 1.35rem 1.5rem 1.3rem;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 1.35rem 1.5rem;
+  background: rgba(13, 15, 24, 0.72);
 }
 
 .academic-card:hover,
 .course-card:hover {
   border-color: rgba(196, 181, 253, 0.34);
   box-shadow: 0 24px 46px rgba(0, 0, 0, 0.36), 0 0 24px rgba(139, 92, 246, 0.1);
-  transform: translateY(-4px);
+}
+
+.academic-card:hover {
+  background: rgba(24, 26, 39, 0.86);
 }
 
 .academic-marker {
   position: absolute;
   top: 1.5rem;
-  left: -2rem;
+  left: -1.65rem;
   width: 0.8rem;
   height: 0.8rem;
   background: #8b5cf6;
@@ -452,13 +459,21 @@
   box-shadow: 0 0 0 1px rgba(196, 181, 253, 0.4), 0 0 15px rgba(139, 92, 246, 0.7);
 }
 
-.academic-card-header,
 .course-card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   margin-bottom: 0.85rem;
+}
+
+.academic-period-column {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding-right: 1.5rem;
+  border-right: 1px solid rgba(196, 181, 253, 0.14);
 }
 
 .academic-period,
@@ -492,6 +507,10 @@
   color: var(--text-highlight);
   font-size: 1.1rem;
   line-height: 1.35;
+}
+
+.academic-card-body {
+  min-width: 0;
 }
 
 .academic-card .institution,
@@ -667,11 +686,203 @@
     grid-template-columns: 1fr;
   }
 
-  .academic-card-header,
+  .academic-card {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .academic-period-column,
   .course-card-header {
     align-items: flex-start;
     flex-direction: column;
   }
+
+  .academic-period-column {
+    padding-right: 0;
+    padding-bottom: 0.75rem;
+    border-right: 0;
+    border-bottom: 1px solid rgba(196, 181, 253, 0.14);
+  }
+}
+
+/* ===== Academic accordion ===== */
+
+.academic-card {
+  display: block;
+  padding: 0;
+}
+
+.academic-trigger {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  color: inherit;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  font: inherit;
+  transition: background 250ms ease, box-shadow 250ms ease;
+}
+
+.academic-trigger:hover {
+  background: linear-gradient(110deg, rgba(139, 92, 246, 0.1), transparent 58%);
+  box-shadow: inset 3px 0 0 #8b5cf6;
+}
+
+.academic-card.expanded .academic-trigger {
+  background: linear-gradient(110deg, rgba(139, 92, 246, 0.08), transparent 58%);
+  box-shadow: inset 3px 0 0 #8b5cf6;
+}
+
+.academic-trigger:focus-visible {
+  outline: 2px solid #7dd3fc;
+  outline-offset: -3px;
+  border-radius: 12px;
+}
+
+.academic-trigger .academic-period-column {
+  padding-right: 1.5rem;
+}
+
+.academic-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.academic-title-row strong {
+  color: var(--text-highlight);
+  font-size: 1.05rem;
+  line-height: 1.35;
+  transition: color 250ms ease;
+}
+
+.academic-trigger:hover .academic-title-row strong,
+.academic-card.expanded .academic-title-row strong {
+  color: #ddd6fe;
+}
+
+.academic-chevron {
+  display: grid;
+  flex: 0 0 2rem;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  color: #7dd3fc;
+  background: rgba(125, 211, 252, 0.08);
+  border: 1px solid rgba(125, 211, 252, 0.24);
+  border-radius: 50%;
+  font-size: 1.15rem;
+  line-height: 1;
+  transition: transform 300ms ease, color 250ms ease, background 250ms ease;
+}
+
+.academic-card.expanded .academic-chevron {
+  color: #ffffff;
+  background: linear-gradient(135deg, #8b5cf6, #4f46e5);
+  border-color: transparent;
+  transform: rotate(180deg);
+}
+
+.academic-card-details {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1.5rem 0 168px;
+  opacity: 0;
+  transition: max-height 420ms ease, opacity 300ms ease, padding-bottom 420ms ease;
+}
+
+.academic-card.expanded .academic-card-details {
+  max-height: 180px;
+  padding-bottom: 1.25rem;
+  opacity: 1;
+}
+
+.academic-card-details p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.academic-card-details .academic-detail {
+  margin-top: 0.7rem;
+}
+
+@media (max-width: 620px) {
+  .academic-trigger {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 1rem 1.15rem;
+  }
+
+  .academic-trigger .academic-period-column {
+    padding-right: 0;
+    padding-bottom: 0.65rem;
+    border-right: 0;
+    border-bottom: 1px solid rgba(196, 181, 253, 0.14);
+  }
+
+  .academic-card-details {
+    padding: 0 1.15rem;
+  }
+
+  .academic-card.expanded .academic-card-details {
+    padding-bottom: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .academic-trigger,
+  .academic-title-row strong,
+  .academic-chevron,
+  .academic-card-details {
+    transition: none;
+  }
+}
+
+/* Paginación final compartida */
+.education-pagination .education-pagination-btn {
+  min-width: 2.4rem;
+  height: 2.4rem;
+  padding: 0 0.75rem;
+  color: var(--text-secondary);
+  background: rgba(13, 15, 24, 0.78);
+  border: 1px solid rgba(196, 181, 253, 0.16);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  box-shadow: none;
+}
+
+.education-pagination .education-pagination-btn:hover:not(:disabled) {
+  color: #ffffff;
+  background: rgba(139, 92, 246, 0.18);
+  border-color: rgba(196, 181, 253, 0.42);
+  transform: translateY(-2px);
+}
+
+.education-pagination .education-pagination-btn.active {
+  color: #ffffff;
+  background: linear-gradient(135deg, #8b5cf6, #4f46e5);
+  border-color: transparent;
+  box-shadow: 0 8px 18px rgba(79, 70, 229, 0.24);
+}
+
+.education-pagination .education-pagination-btn:disabled {
+  color: #656b78;
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(255, 255, 255, 0.06);
+  opacity: 0.6;
+}
+
+.education-pagination {
+  align-items: center;
 }
 
 /* Aparición escalonada de formación */
@@ -693,11 +904,13 @@
 @keyframes education-card-appear {
   from {
     opacity: 0;
+    filter: blur(8px);
     transform: translateY(14px);
   }
 
   to {
     opacity: 1;
+    filter: blur(0);
     transform: translateY(0);
   }
 }
@@ -712,6 +925,7 @@
 .education-section .academic-card,
 .education-section .course-card {
   opacity: 0;
+  filter: blur(8px);
   transform: translateY(14px);
   animation: none;
 }
@@ -730,6 +944,7 @@
   .education-section.is-visible .academic-card,
   .education-section.is-visible .course-card {
     opacity: 1;
+    filter: none;
     transform: none;
     animation: none;
   }
