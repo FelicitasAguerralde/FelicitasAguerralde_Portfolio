@@ -6,7 +6,10 @@ function HexagonBackground() {
   const canvasRef = useRef(null);
 
   useEffect(() => {
+    const container = containerRef.current;
     const canvas = canvasRef.current;
+    if (!container || !canvas) return undefined;
+
     const context = canvas.getContext('2d');
     let animationFrameId;
     let tiles = [];
@@ -21,7 +24,7 @@ function HexagonBackground() {
 
     const resizeCanvas = () => {
       const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
-      const bounds = containerRef.current.getBoundingClientRect();
+      const bounds = container.getBoundingClientRect();
       width = bounds.width;
       height = bounds.height;
       canvas.width = width * pixelRatio;
@@ -145,7 +148,7 @@ function HexagonBackground() {
     };
 
     const handleMouseMove = (event) => {
-      const bounds = containerRef.current.getBoundingClientRect();
+      const bounds = container.getBoundingClientRect();
       mouseX = (event.clientX - bounds.left) / bounds.width - 0.5;
       mouseY = (event.clientY - bounds.top) / bounds.height - 0.5;
       mouseActive = true;
@@ -159,7 +162,7 @@ function HexagonBackground() {
 
     resizeCanvas();
     const resizeObserver = new ResizeObserver(resizeCanvas);
-    resizeObserver.observe(containerRef.current);
+    resizeObserver.observe(container);
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseleave', resetMousePosition);
     animate();
