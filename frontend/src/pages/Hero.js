@@ -4,7 +4,7 @@ import '../styles/Hero.css';
 
 const programmingPhrases = [
   'Amante del frontend',
-  'Experiencias de usuario atractivas y funcionales',
+  'Diseño intuitivo y funcional',
   'Apasionada y comprometida',
   'En constante aprendizaje'
 ];

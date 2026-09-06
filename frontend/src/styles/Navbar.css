@@ -145,7 +145,7 @@
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(222, 218, 218, 0.204);
     z-index: 999;
   }
   
@@ -154,7 +154,9 @@
     transform: translateY(-20px);
     opacity: 1;
     visibility: visible;
-    height: 100vh;
+    height: max-content;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
   }
 
   .navbar-hamburger span{
@@ -274,6 +276,6 @@
     width: min(260px, 90vw);
     padding: 1rem 1rem;
     text-align: center;
-    border: 1px solid var(--accent-bg);
+    border: 2px solid var(--accent-bg);
   }
 }
