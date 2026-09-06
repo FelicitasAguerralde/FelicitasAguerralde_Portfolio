@@ -116,7 +116,7 @@ const Navbar = ({ name, darkMode, toggleTheme }) => {
             className="btn"
             onClick={() => scrollToSection('contact')}
           >
-            Contactame
+            Contacto
           </button>
 
           <button

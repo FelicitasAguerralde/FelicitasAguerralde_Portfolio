@@ -92,7 +92,7 @@ const Contact = ({ email, github, linkedin }) => {
             <MetamorphosisBackground />
       <div className="container">
         <h2 className="section-title">
-          Contacta<span className="highlight">me</span>
+          Contacto
         </h2>
         <p className="section-subtitle">
           ¿Tenés un proyecto en mente? Puedo ayudarte a crearlo, escribime y

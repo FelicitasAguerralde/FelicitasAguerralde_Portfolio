@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(var(--card-light-rgb), 0.1);
+  background-color: rgba(var(--text-highlight), 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(108, 99, 255, 0.1);
@@ -14,7 +14,6 @@
 }
 
 .navbar-container {
-  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
@@ -22,20 +21,6 @@
   align-items: center;
 }
 
-.navbar-logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.navbar-logo:hover {
-  transform: scale(1.05);
-}
 
 .navbar-menu {
   display: flex;
@@ -52,7 +37,7 @@
 .navbar-link {
   background: none;
   border: none;
-  color: var(--text-highlight);
+  color: var(--text-primary);
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
@@ -89,7 +74,7 @@
 .theme-toggle {
   background: none;
   border: none;
-  color: var(--text-light);
+  color: var(--text-highlight);
   cursor: pointer;
   padding: 0.5rem;
   border-radius: 50%;
@@ -97,11 +82,11 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  background-color: rgba(var(--primary-color-rgb), 0.1);
+  background-color: rgba(var(--accent), 0.1);
 }
 
 .theme-toggle:hover {
-  background-color: rgba(var(--primary-color-rgb), 0.2);
+  background-color: rgba(var(--accent), 0.2);
   transform: rotate(30deg);
 }
 
@@ -119,7 +104,7 @@
   display: block;
   width: 25px;
   height: 2px;
-  background-color: var(--text-light);
+  background-color: var(--text-primary) !important;
   transition: all 0.3s ease;
   border-radius: 2px;
 }
@@ -151,7 +136,7 @@
     top: 70px;
     left: 0;
     width: 100%;
-    background-color: var(--card-light);
+    background-color: var(--text-primary);
     flex-direction: column;
     align-items: center;
     padding: 2rem 0;
@@ -164,15 +149,16 @@
     z-index: 999;
   }
   
-  .dark-mode .navbar-menu {
-    background-color: var(--card-dark);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  }
-  
+
   .navbar-menu.active {
-    transform: translateY(0);
+    transform: translateY(-20px);
     opacity: 1;
     visibility: visible;
+    height: 100vh;
+  }
+
+  .navbar-hamburger span{
+    background-color: var(--text-primary) !important;
   }
   
   .navbar-hamburger {
@@ -180,7 +166,7 @@
   }
   
   .navbar-hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
+    transform: rotate(45deg) translate(3px, 6px);
   }
   
   .navbar-hamburger.active span:nth-child(2) {
@@ -188,7 +174,7 @@
   }
   
   .navbar-hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
+    transform: rotate(-45deg) translate(2px, -6px);
   }
   
   .navbar-actions .btn {
@@ -200,29 +186,18 @@
   }
 }
 
-/* Variables CSS para los modos de color */
-:root {
-  --primary-color-rgb: 108, 99, 255;
-  --card-light-rgb: 255, 255, 255;
-  --card-dark-rgb: 30, 30, 30;
-}
-
-.dark-mode {
-  --card-light-rgb: 30, 30, 30;
-  --card-dark-rgb: 37, 37, 37;
-}
 
 /* ===== Shared portfolio navigation ===== */
 .navbar {
   padding: 0.7rem 0;
-  background: rgba(8, 6, 13, 0.72);
+  background: var(--bg);
   border-bottom: 1px solid rgba(196, 181, 253, 0.14);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
 }
 
 .navbar.scrolled {
   padding: 0.55rem 0;
-  background: rgba(8, 6, 13, 0.9);
+  background: var(--bg);
   border-bottom-color: rgba(196, 181, 253, 0.24);
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3);
 }
@@ -242,7 +217,7 @@
   align-items: center;
   gap: 0.35rem;
   padding: 0.3rem;
-  background: rgba(255, 255, 255, 0.035);
+  background: var(--bg);
   border: 1px solid rgba(196, 181, 253, 0.08);
   border-radius: 10px;
 }
@@ -250,8 +225,9 @@
 .navbar-link {
   padding: 0.48rem 0.72rem;
   border-radius: 7px;
-  color: var(--text-secondary);
-  font-size: 0.84rem;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: bolder;
   transition: color 220ms ease, background 220ms ease;
 }
 
@@ -266,7 +242,7 @@
 
 .navbar-actions .btn {
   padding: 0.62rem 0.95rem;
-  background: linear-gradient(135deg, #8b5cf6, #4f46e5);
+  background: linear-gradient(135deg, #aa3bff, #7e02dd);
   border-radius: 8px;
   box-shadow: 0 8px 18px rgba(79, 70, 229, 0.22);
   font-size: 0.82rem;
@@ -285,22 +261,19 @@
     gap: 0.75rem;
   }
 
-  .navbar-logo {
-    font-size: 1.15rem;
-  }
-
   .navbar-menu {
     top: 64px;
     gap: 0.45rem;
     padding: 1rem;
-    background: rgba(13, 15, 24, 0.96);
-    border: 1px solid rgba(196, 181, 253, 0.16);
+    background: var(--bg);
+    border: 1px solid var(--accent-bg);
     border-radius: 0 0 12px 12px;
   }
 
   .navbar-link {
     width: min(260px, 90vw);
-    padding: 0.7rem 1rem;
+    padding: 1rem 1rem;
     text-align: center;
+    border: 1px solid var(--accent-bg);
   }
 }
