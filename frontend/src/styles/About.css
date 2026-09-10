@@ -152,7 +152,6 @@
 }
 
 .about-photo-card:hover {
-  filter: drop-shadow(0 24px 24px rgba(0, 0, 0, 0.28));
   transform: translateZ(18px) rotateX(4deg) rotateY(-5deg);
 }
 
