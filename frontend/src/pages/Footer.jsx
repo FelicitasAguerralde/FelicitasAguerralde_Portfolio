@@ -34,7 +34,7 @@ const Footer = ({ name }) => {
         <div className="container">
           <div className="footer-content">
             <div className="footer-logo">
-              {name} software developer
+              {name} Desarrolladora de Software
             </div>
             <p className="footer-text">
               “Cada problema es una oportunidad para aprender.”

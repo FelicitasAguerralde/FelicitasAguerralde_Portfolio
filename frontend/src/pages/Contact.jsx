@@ -24,7 +24,7 @@ const Contact = ({ email, github, linkedin }) => {
 
     const observer = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.05, rootMargin: '0px 0px -8% 0px' },
+      { threshold: 0.05, rootMargin: '0px 0px -8% 0px' }
     );
 
     observer.observe(node);
@@ -88,12 +88,14 @@ const Contact = ({ email, github, linkedin }) => {
   };
 
   return (
-    <section ref={sectionRef} id="contact" className={`contact ${isVisible ? 'is-visible' : ''}`}>
-            <MetamorphosisBackground />
+    <section
+      ref={sectionRef}
+      id="contact"
+      className={`contact ${isVisible ? 'is-visible' : ''}`}
+    >
+      <MetamorphosisBackground />
       <div className="container">
-        <h2 className="section-title">
-          Contacto
-        </h2>
+        <h2 className="section-title">Contacto</h2>
         <p className="section-subtitle">
           ¿Tenés un proyecto en mente? Puedo ayudarte a crearlo, escribime y
           hablemos!!!
@@ -184,7 +186,7 @@ const Contact = ({ email, github, linkedin }) => {
 
             <form className="contact-form" onSubmit={handleSubmit}>
               <div className="form-group">
-                <label htmlFor="firstName">Nombre *</label>
+                <label htmlFor="firstName">Nombre</label>
                 <input
                   type="text"
                   id="firstName"
@@ -198,7 +200,7 @@ const Contact = ({ email, github, linkedin }) => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="lastName">Apellido *</label>
+                <label htmlFor="lastName">Apellido</label>
                 <input
                   type="text"
                   id="lastName"
@@ -212,7 +214,7 @@ const Contact = ({ email, github, linkedin }) => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="email">Email *</label>
+                <label htmlFor="email">Email</label>
                 <input
                   type="email"
                   id="email"
@@ -239,7 +241,7 @@ const Contact = ({ email, github, linkedin }) => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="message">Mensaje *</label>
+                <label htmlFor="message">Mensaje</label>
                 <textarea
                   id="message"
                   name="message"
@@ -262,6 +264,9 @@ const Contact = ({ email, github, linkedin }) => {
                     </span>
                   )}
                 </div>
+                <span className="character-count-min">
+                  * Campos obligatorios
+                </span>
               </div>
 
               <div className="form-actions">
