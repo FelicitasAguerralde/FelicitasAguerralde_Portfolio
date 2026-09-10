@@ -6,17 +6,17 @@ const programmingPhrases = [
   'Amante del frontend',
   'Diseño intuitivo y funcional',
   'Apasionada y comprometida',
-  'En constante aprendizaje'
+  'En constante aprendizaje',
 ];
 
-const Hero = ({ name, title, description}) => {
+const Hero = ({ name, title, description }) => {
   const [phraseIndex, setPhraseIndex] = useState(0);
 
   useEffect(() => {
     const phraseTimer = setInterval(() => {
-      setPhraseIndex((currentIndex) => (
-        (currentIndex + 1) % programmingPhrases.length
-      ));
+      setPhraseIndex(
+        (currentIndex) => (currentIndex + 1) % programmingPhrases.length
+      );
     }, 3500);
 
     return () => clearInterval(phraseTimer);
@@ -36,7 +36,8 @@ const Hero = ({ name, title, description}) => {
             key={phraseIndex}
             className="hero-rotating-text typewriter-phrase"
             style={{
-              '--typewriter-characters': programmingPhrases[phraseIndex].length,
+              '--typewriter-characters':
+                programmingPhrases[phraseIndex].length + 1,
             }}
             aria-live="polite"
           >
