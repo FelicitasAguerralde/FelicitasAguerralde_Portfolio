@@ -189,7 +189,6 @@
 
 .filter-btn:hover {
   border-color: var(--border);
-  color: var(--accent);
 }
 
 .filter-btn.active {
