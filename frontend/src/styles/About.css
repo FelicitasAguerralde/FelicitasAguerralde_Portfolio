@@ -207,6 +207,7 @@
     linear-gradient(145deg, rgba(35, 25, 59, 0.98), rgba(12, 22, 34, 0.98)),
     #11131b;
   transform: rotateY(180deg);
+  box-shadow: var(--shadow-white);
 }
 
 .about-info-label {
